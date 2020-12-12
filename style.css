@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
+*{
+  margin:0;
+  padding:0;
+}
+html,
+body{
+   height: 100%;
+   padding: 0;
+   scroll-behavior: smooth;
+   background: #F2F4F3;
+   color: #0A0908;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 300;
+}
+
+h1{
+  color: #49111C;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: #49111C;
+  font-size:36px;
+}
+
+h2{
+  line-height: 1.25;
+  padding-top: 15px;
+  font-weight: 300;
+  font-familY: 'Open-Sans', sans-serif;
+  color: #0A0908;
+  font-size: 18px;
+}
+#p1 {
+    font-family: 'Open-Sans', sans-serif;
+    color: #0A0908;
+    font-size: 16px;
+    font-weight: 400;
+  position: absolute;
+    position: sticky;
+    top: 250px;
+    margin-bottom: 200px;
+}
+
+#p2 {
+  font-family: 'Open-Sans', sans-serif;
+  color: #0A0908;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  position: sticky;
+  top: 250px;
+  margin-bottom: 200px;
+}
+
+#p3 {
+  font-family: 'Open-Sans', sans-serif;
+  color: #0A0908;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  position: sticky;
+  top: 250px;
+  margin-bottom: 200px;
+}
+
+svg{
+  padding: 20px;
+}
+text{
+  font-size: 10px;
+}
+strong{
+  /* font-family: 'Open-Sans', 'sans-serif'; */
+  font-weight: 400;
+  color: #A9927D;
+  font-size: 18px;
+}
+#graphic {
+  max-width:  600px;
+  width: 100%;
+  position:   relative; 
+  height:  100%;
+  position:  relative; 
+  margin:30px;
+}
+.container {
+  height: 100%;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 160px;
+  padding: 0;
+  position: absolute;
+  height: 100%;
+  line-height: 1.5;
+  left: 620px;
+}
+.container div {
+  height: 100%;
+  display: block;
+  padding: 0 45px;
+}
+.fixed {
+  position: fixed;
+  max-width: 500px;
+  height: 500px;
+  top: 50px;
+}
+   
+   
+   
