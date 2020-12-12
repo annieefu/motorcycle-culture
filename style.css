@@ -82,28 +82,45 @@ p {
   font-weight: 300;
   position: relative;
   position: sticky;
-  top: 28vh;
-  margin-top: 600px;
-  margin-bottom: 500px;
+  top: 20vh;
+  margin-top: 500px;
 }
+
+
+
+#p5{
+  margin-left: -28vw;
+  margin-top:20vh;
+  width: 54vw;
+  height: 180vh;
+  text-align: left;
+  font-family: 'Open-Sans', sans-serif;
+  color: #0A0908;
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  position: sticky;
+  top: 10vh;
+}
+   
 
 svg{
   padding: 20px;
 }
 text{
-  font-size: 10px;
+  font-size: 40px;
 }
 strong{
   /* font-family: 'Open-Sans', 'sans-serif'; */
   font-weight: 500;
-  color: #A9927D;
+  color: #5E503F;
   font-size: 17px;
 }
 
 #p3 strong {
     /* font-family: 'Open-Sans', 'sans-serif'; */
     font-weight: 500;
-    color: #A9927D;
+    color: #5E503F;
     font-size: 18px;
 
 }
@@ -137,6 +154,10 @@ strong{
   height: 500px;
   top: 50px;
 }
-   
-   
+
+  
+
+#div5 {
+  background: grey;
+}
    

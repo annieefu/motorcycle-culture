@@ -27,12 +27,12 @@
         On <strong>April 18th, 1924</strong>, the Ithaca Motorcycle Club was first mentioned in the Cornell Daily Sun:
        <b> “NEWLY FORMED MOTORCYCLE CLUB TO HOLD FIRST MEETING.”</b> <br><br>
        The story called for "any students owning motorcycles or any who might be interested in the sport," citing an exciting 
-       inaugural season of programming and potential for a polo team.
+       inaugural season of programming and even potential for a polo team.
         </p>
     </div>
     <div id="div3">
       <p id = "p2">
-        The club never made it to print again, according to Shantanu Naidu, MBA ‘18. 
+        The club was never mentioned in print again, according to Shantanu Naidu, MBA ‘18. 
         That is, until he revived the organization by founding the <strong>Cornell Motorcycle 
         Association</strong> in 2016. “I tried to find the termination date of the original club 
         in the archives, but there was nothing more. It seems to have just faded out,”
@@ -41,7 +41,7 @@
          He re-established the organization while he was a student at the Johnson 
          School, with the primary goal of educating his classmates 
          on motorcycle culture. <p class="quote"><i>"In East Asian countries, people use 
-         motorcycles as a part of their daily commutes. There are
+         motorcycles part of their daily commutes. There are
           motorcycles everywhere on the roads; everyone has one. But 
           when I came to Cornell and told people I rode a motorcycle, 
           my American classmates flipped out. ‘Do you want to die?
@@ -58,10 +58,20 @@
         “Whenever I passed other motorcyclists, 
         they would give me a thumbs up. This was new to me. <strong>In India, 
         commuting is commuting,</strong> and motorcycles are an affordable and
-        convenient way to do so. But <b>in America, motorcycling is unique and niche:
-        There’s a spirit of brotherhood.”</b>
+        convenient way to do so. But <strong>in America, motorcycling is unique and niche:
+        there’s a spirit of brotherhood.”</strong>
 
+        <br><br>
+        <b>Thus is the complexity of American motorcycle culture: stigmatized, yet novel; tight-knit, yet welcoming.</b>
+        While on a wine tour around the Finger Lakes with my friends this October, I saw a group of a couple dozen motorcyclists roar past in what I 
+        can only describe as an expression of total freedom. I decided I needed to learn more about who America's motorcyclists were,
+        beginning with Ithaca and New York State.
+      </p>
+    </div>
 
+    <div id="div5">
+      <p id = "p5" style="text-align: center;">
+        I asked a few friends what thoughts came to their mind when thinking about motorcyclists, motorcycles, or motorcycle clubs.
       </p>
     </div>
     
@@ -119,7 +129,11 @@
     let shantanuimg = group.append("svg:image");
 
 
-
+    let stigmatext1 = group.append("text");
+    let stigmatext2 = group.append("text");
+    let stigmatext3 = group.append("text");
+    let stigmatext4 = group.append("text");
+    let stigmatext5 = group.append("text");
 
   let titleimgdev = () =>{
     titleimg
@@ -159,8 +173,12 @@
         .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
+    stigmatext1
+        .attr('display', 'none')
+        .text("")
+    stigmatext2
+        .attr('display', 'none')
   }
-
 
   let sunimgdev = () =>{
     sunimg
@@ -199,6 +217,11 @@
         .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
+    stigmatext1
+        .attr('display', 'none')
+        .text("")
+    stigmatext2
+        .attr('display', 'none')
   }
 
 
@@ -246,21 +269,69 @@
         .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
+    stigmatext1
+        .attr('display', 'none')
+        .text("");
+        stigmatext2
+        .attr('display', 'none');
   }
 
   let quotedev = () =>{
     shantanuimg2
     .transition()
-        .duration(800)
+        .duration(1600)
         .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
     shantanuimg
     .transition()
-        .duration(800)
-        .attr("display", "none")
+    .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
+        .duration(16800)
+    stigmatext1
+        .attr('display', 'none')
+        .text("");
+    stigmatext2
+        .attr('display', 'none');
+  }
+
+  
+  let stigmadev1 = () =>{
+    console.log('1 logged')
+    stigmatext1
+    .transition()
+      .delay((d, i) => 20 * i)
+      .duration(1000)
+      .ease("elastic")
+      .attr('x', 140)
+      .attr('y', 220)
+      .text('Sigma 1 Hi')
+      .attr('font-size', '40px')
+      .attr('fill','grey')
+      .attr('display', 'visible')
+    stigmatext2
+    .transition()
+    .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+        .duration(16800)
+  }
+
+  let stigmadev2 = () =>{
+
+    console.log('2 logged')
+    stigmatext2
+    .transition()
+      .delay((d, i) => 20 * i)
+      .duration(1000)
+      .ease("elastic")
+      .attr('x', 540)
+      .attr('y', 70)
+    .attr("display", "visible")
+      .attr('font-size', '40px')
+      .text('Stigma2')
+      .attr('fill','grey')
   }
   // // square grid
   // let grid = () =>{
@@ -321,24 +392,6 @@
   //     .attr("opacity", (d,i)=> i < 12 ? 1 : 0 )//only show 12 people
 
 
-
-  //     //age
-  //     d3.selectAll('text.age')
-  //       .transition()
-  //       .delay( (d,i) => 40*i ) 
-  //       .duration(900)
-  //       .ease('elastic')
-  //       .attr("dx", -500)
-
-
-  //     //city
-  //     d3.selectAll('text.city')
-  //       .transition()
-  //       .delay( (d,i) => 40*i ) 
-  //       .duration(900)
-  //       .ease('elastic')
-  //       .attr("dx", -500)
-  // }
 
 
 
@@ -414,6 +467,11 @@
   new scroll('div2', '80%', sunimgdev, titleimgdev);
   new scroll('div3', '36%', shantanudev, sunimgdev);
   new scroll('div4', '84%', quotedev, shantanudev);
+  new scroll('div5', '-20%', stigmadev1, quotedev);
+  new scroll('div5', '5%', stigmadev2, stigmadev1);
+  // new scroll('div5', '55%', stigmadev3, stigmadev2);
+  // new scroll('div5', '35%', stigmadev4, stigmadev3);
+  // new scroll('div5', '15%', stigmadev5, stigmadev4);
 
 
 
