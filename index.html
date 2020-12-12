@@ -24,16 +24,45 @@
     </div>
     <div id="div2">
       <p id = "p1">
-        On <strong>April 18th, 1924</strong>, the Cornell Daily Sun ran a story titled “NEWLY FORMED MOTORCYCLE CLUB TO HOLD FIRST MEETING,” calling for motorcycle-owning students to attend the inaugural meeting of the Ithaca Motorcycle Club.
+        On <strong>April 18th, 1924</strong>, the Ithaca Motorcycle Club was first mentioned in the Cornell Daily Sun:
+       <b> “NEWLY FORMED MOTORCYCLE CLUB TO HOLD FIRST MEETING.”</b> <br><br>
+       The story called for "any students owning motorcycles or any who might be interested in the sport," citing an exciting 
+       inaugural season of programming and potential for a polo team.
         </p>
     </div>
     <div id="div3">
       <p id = "p2">
+        The club never made it to print again, according to Shantanu Naidu, MBA ‘18. 
+        That is, until he revived the organization by founding the <strong>Cornell Motorcycle 
+        Association</strong> in 2016. “I tried to find the termination date of the original club 
+        in the archives, but there was nothing more. It seems to have just faded out,”
+         Naidu told me when we spoke over the phone. 
+      </br> </br>
+         He re-established the organization while he was a student at the Johnson 
+         School, with the primary goal of educating his classmates 
+         on motorcycle culture. <p class="quote"><i>"In East Asian countries, people use 
+         motorcycles as a part of their daily commutes. There are
+          motorcycles everywhere on the roads; everyone has one. But 
+          when I came to Cornell and told people I rode a motorcycle, 
+          my American classmates flipped out. ‘Do you want to die?
+           Why do you want to risk your life?’ <br><br>I didn’t understand because 
+           I’d been riding for years. <b>I felt that the stigma around motorcycle 
+           culture in America was exaggerated to an extreme."</i></b></p>
 
         </p>
          </div>
     <div id="div4">
-      <p id = "p3"></p>
+      <p id = "p3">
+        At the same time, though, Naidu found a new sense of community 
+        surrounding motorcycling at Cornell: <br><br>
+        “Whenever I passed other motorcyclists, 
+        they would give me a thumbs up. This was new to me. <strong>In India, 
+        commuting is commuting,</strong> and motorcycles are an affordable and
+        convenient way to do so. But <b>in America, motorcycling is unique and niche:
+        There’s a spirit of brotherhood.”</b>
+
+
+      </p>
     </div>
     
   </div>
@@ -84,22 +113,12 @@
     //create the objects
     let rects = group.append("rect")
     let titleimg = group.append("svg:image");
-    let sunimg = group.append("svg:image")
+    let sunimg = group.append("svg:image");
 
-  // //city data
-  // d3.selectAll('g')
-  //   .append("text")
-  //   .text( (d) => d["city"])
-  //   .attr("fill", "gray")
-  //   .attr("class", "city")
-  //   .attr("dx", -500)
-  // //age data
-  // d3.selectAll('g')
-  //   .append("text")
-  //   .text( (d) => d["age"] )
-  //   .attr("fill", "#fff")
-  //   .attr("class", "age")
-  //   .attr("dx", -500)
+    let shantanuimg2 = group.append("svg:image");
+    let shantanuimg = group.append("svg:image");
+
+
 
 
   let titleimgdev = () =>{
@@ -128,6 +147,18 @@
       .attr("display", "none")
       .attr("opacity", "0")
       .ease("elastic")
+
+    shantanuimg.transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+
+    shantanuimg2.transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
   }
 
 
@@ -156,8 +187,81 @@
         .attr("display", "none")
         .attr("opacity", "0")
         .ease("elastic")
+    shantanuimg
+    .transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+    
+    shantanuimg2.transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
   }
 
+
+  let shantanudev = () =>{
+    shantanuimg2
+      .transition()
+      .delay((d, i) => 20 * i)
+      .duration(1000)
+      .ease("elastic")
+      .attr('x', 265)
+      .attr('y', 255)
+      .attr('width', 300)
+      .attr('height', 300)
+      .attr("xlink:href", "images/shantanu_1.JPG")
+      .attr("display", "visible")
+      .attr("opacity", "1")
+
+    shantanuimg
+      .transition()
+      .delay((d, i) => 20 * i)
+      .duration(1000)
+      .ease("elastic")
+      .attr('x',35)
+      .attr('y', 55)
+      .attr('width', 280)
+      .attr('height', 280)
+      .attr("xlink:href", "images/motorcycle_association.jpg")
+      .attr("display", "visible")
+      .attr("opacity", "1")
+    titleimg
+      .transition()
+      .duration(800)
+      .attr("display", "none")
+      .attr("opacity", "0")
+      .ease("elastic")
+    rects
+      .transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+    sunimg
+      .transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+  }
+
+  let quotedev = () =>{
+    shantanuimg2
+    .transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+    shantanuimg
+    .transition()
+        .duration(800)
+        .attr("display", "none")
+        .attr("opacity", "0")
+        .ease("elastic")
+  }
   // // square grid
   // let grid = () =>{
   //   rects
@@ -306,10 +410,10 @@
 
 
   //triger these functions on page scroll
-  new scroll('div1', '20%', titleimgdev, titleimgdev);
-  new scroll('div2', '75%', sunimgdev, titleimgdev);
-  // new scroll('div3', '55%', grid2, grid);
-  // new scroll('div4', '55%', divide, grid2);
+  new scroll('div1', '40%', titleimgdev, titleimgdev);
+  new scroll('div2', '80%', sunimgdev, titleimgdev);
+  new scroll('div3', '36%', shantanudev, sunimgdev);
+  new scroll('div4', '84%', quotedev, shantanudev);
 
 
 

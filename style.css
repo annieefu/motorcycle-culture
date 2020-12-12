@@ -22,6 +22,7 @@ h1{
   font-size:36px;
 }
 
+
 h2{
   line-height: 1.25;
   padding-top: 15px;
@@ -30,37 +31,60 @@ h2{
   color: #0A0908;
   font-size: 18px;
 }
+
+b{
+  color: #49111C;
+}
 #p1 {
     font-family: 'Open-Sans', sans-serif;
     color: #0A0908;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
   position: absolute;
     position: sticky;
-    top: 250px;
-    margin-bottom: 200px;
+    top: 24vh;
+    margin-bottom: 240px;
+}
+p {
+  color: #0A0908;
 }
 
 #p2 {
   font-family: 'Open-Sans', sans-serif;
   color: #0A0908;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   position: sticky;
-  top: 250px;
-  margin-bottom: 200px;
+  top: 22vh;
+  margin-bottom: 2vh;
+}
+
+
+.quote {
+  margin-left: 15px;
+  border-left: solid;
+  padding-left: 9px;
+  border-width: 3px;
+  border-color: darkred;
+  top: 56vh;
+  position: sticky;
+  margin-bottom: -30vh;
 }
 
 #p3 {
+  margin-left: -28vw;
+  width: 54vw;
+  text-align: justify;
   font-family: 'Open-Sans', sans-serif;
   color: #0A0908;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
   position: relative;
   position: sticky;
-  top: 250px;
-  margin-bottom: 200px;
+  top: 28vh;
+  margin-top: 600px;
+  margin-bottom: 500px;
 }
 
 svg{
@@ -71,9 +95,17 @@ text{
 }
 strong{
   /* font-family: 'Open-Sans', 'sans-serif'; */
-  font-weight: 400;
+  font-weight: 500;
   color: #A9927D;
-  font-size: 18px;
+  font-size: 17px;
+}
+
+#p3 strong {
+    /* font-family: 'Open-Sans', 'sans-serif'; */
+    font-weight: 500;
+    color: #A9927D;
+    font-size: 18px;
+
 }
 #graphic {
   max-width:  600px;
@@ -81,7 +113,7 @@ strong{
   position:   relative; 
   height:  100%;
   position:  relative; 
-  margin:30px;
+  margin:6vw;
 }
 .container {
   height: 100%;
@@ -92,7 +124,7 @@ strong{
   position: absolute;
   height: 100%;
   line-height: 1.5;
-  left: 620px;
+  left: 610px;
 }
 .container div {
   height: 100%;
