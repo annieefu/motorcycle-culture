@@ -1,5 +1,9 @@
 
 /**
+ * THIS CODE WAS ORIGINALLY WRITTEN BY BARON WATTS:
+ * https://bl.ocks.org/baronwatts/2a50ae537d7c46670aa5eb30254ef751
+ * 
+ * 
  * scrollVis - encapsulates
  * all the code for the visualization
  * using reusable charts pattern:

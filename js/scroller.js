@@ -1,5 +1,10 @@
 
 /**
+ * THIS CODE WAS ORIGINALLY WRITTEN BY BARON WATTS:
+ * https://bl.ocks.org/baronwatts/2a50ae537d7c46670aa5eb30254ef751
+ * 
+ * 
+ * 
  * scroller - handles the details
  * of figuring out which section
  * the user is currently scrolled
