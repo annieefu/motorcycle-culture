@@ -82,7 +82,7 @@
         formed their idea of 
       </p>
 
-      <svg id = "demog_viz"></svg>
+      <svg id = "demog_viz" style="margin-left: -27vw;"></svg>
     </div>
   </div>
 
@@ -95,8 +95,13 @@
 <script>
 
 const requestData = async function () {
-let occupation_data = await d3.csv("data/Occupation_Data.csv", d3.autoType)
+const occupation_data = await d3.csv("data/Occupation_Data.csv")
 
+const counts_data = await d3.csv("data/counts.csv")
+   
+console.log(occupation_data);
+
+console.log(counts_data);
   //svg
   let svg = d3.select("#viz");
   let stigma_vis = d3.select("#stigma_viz");
@@ -108,17 +113,19 @@ let occupation_data = await d3.csv("data/Occupation_Data.csv", d3.autoType)
       .attr('height',500)
   stigma_vis.attr('width',1130)
   .attr('height',500)
-  demog_vis.attr('width',500)
+  demog_vis.attr('width',700)
   .attr('height',600)
 
 
   //set up grid spacing
   let spacing = 40;
-  let rows = 10;
-  let column = 10;
+  let rows = 2;
+  let column = 4;
   let randnum = (min,max) => Math.round( Math.random() * (max-min) + min );
 
-
+  color = d3.scale.linear().domain([1,length])
+      .interpolate(d3.interpolateHcl)
+      .range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
 
   //Create an array of objects
   let our_data = d3.range(20).map(i => 
@@ -132,6 +139,7 @@ let occupation_data = await d3.csv("data/Occupation_Data.csv", d3.autoType)
 
 
   //create rectangles
+
   let group = svg.selectAll('g')
       .data(our_data)
       .enter()
@@ -156,7 +164,40 @@ let occupation_data = await d3.csv("data/Occupation_Data.csv", d3.autoType)
     let stigmatext8 = stigma_vis.append("text");
     let stigmatext9 = stigma_vis.append("text");
 
-    let occ_rects = demog_vis.append("rect");
+    let occ_rects1 = demog_vis.append("rect");
+    let occ_rects2 = demog_vis.append("rect");
+    let occ_rects3 = demog_vis.append("rect");
+    let occ_rects4 = demog_vis.append("rect");
+    let occ_rects5 = demog_vis.append("rect");
+    let occ_rects6 = demog_vis.append("rect");
+    let occ_rects7 = demog_vis.append("rect");
+    let occ_rects8 = demog_vis.append("rect");
+    let occ_rects9 = demog_vis.append("rect");
+    let occ_rects10 = demog_vis.append("rect");
+    let occ_rects11 = demog_vis.append("rect");
+    let occ_rects12 = demog_vis.append("rect");
+    let occ_rects13 = demog_vis.append("rect");
+    let occ_rects14 = demog_vis.append("rect");
+    let occ_rects15 = demog_vis.append("rect");
+    let occ_rects16 = demog_vis.append("rect");
+
+    let rects_text1 = demog_vis.append("text");
+
+    let rects_text2 = demog_vis.append("text");
+    let rects_text3 = demog_vis.append("text");
+    let rects_text4 = demog_vis.append("text");
+    let rects_text5 = demog_vis.append("text");
+    let rects_text6 = demog_vis.append("text");
+    let rects_text7 = demog_vis.append("text");
+    let rects_text8 = demog_vis.append("text");
+    let rects_text9 = demog_vis.append("text");
+    let rects_text10 = demog_vis.append("text");
+    let rects_text11 = demog_vis.append("text");
+    let rects_text12 = demog_vis.append("text");
+    let rects_text13 = demog_vis.append("text");
+    let rects_text14 = demog_vis.append("text");
+    let rects_text15 = demog_vis.append("text");
+    let rects_text16 = demog_vis.append("text");
 
   let titleimgdev = () =>{
     titleimg
@@ -386,19 +427,219 @@ let occupation_data = await d3.csv("data/Occupation_Data.csv", d3.autoType)
   
   }
 
-occ_colors = [""]
 
 let occupation_grid = () => {
-  occ_rects    
+  occ_rects1    
       .transition()
-      .delay((d, i) => 10 * i)
+      .delay(10)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("width", 120)
+        .attr("x", 0)
+        .attr("y", 5)
+        .attr("fill", "#504436")
+      .attr("width", 140)
       .attr("height", 70)
-      .attr("x", (d, i) => i % column * spacing)
-     .attr("y", (d, i) => Math.floor(i / 10) % rows * spacing)
-       .attr("fill", (d, i) => (occ_colors[i]))
+       .attr("opacity", "1")
+       .attr("display", "visible")
+  rects_text1
+    .attr("x", 50)
+    .attr("y", 35)
+    .attr("fill", "#F2F4F3")
+    .attr("font-size", "22px")
+
+  occ_rects2   
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 155)
+      .attr("y", 5)
+      .attr("fill", "#6B6156")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+  
+    occ_rects3 
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 310)
+      .attr("y", 5)
+      .attr("fill", "#867F75")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects4
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 465)
+      .attr("y", 5)
+      .attr("fill", "#867F75")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects5
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 0)
+      .attr("y", 90)
+      .attr("fill", "#A19C95")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects6
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 155)
+      .attr("y", 90)
+      .attr("fill", "#A19C95")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects7
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 310)
+      .attr("y", 90)
+      .attr("fill", "#A19C95")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+    
+       occ_rects8
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 465)
+      .attr("y", 90)
+      .attr("fill", "#A19C95")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects9
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 0)
+      .attr("y", 175)
+      .attr("fill", "#BCB9B4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects10
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 155)
+      .attr("y", 175)
+      .attr("fill", "#BCB9B4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+      
+       occ_rects11
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 310)
+      .attr("y", 175)
+      .attr("fill", "#BCB9B4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects12
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 465)
+      .attr("y", 175)
+      .attr("fill", "#D7D7D4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+       occ_rects13
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 0)
+      .attr("y", 260)
+      .attr("fill", "#D7D7D4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+       occ_rects14
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 155)
+      .attr("y", 260)
+      .attr("fill", "#D7D7D4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+      
+       occ_rects15
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 310)
+      .attr("y", 260)
+      .attr("fill", "#D7D7D4")
+      .attr("width", 140)
+      .attr("height", 70)
+       .attr("opacity", "1")
+       .attr("display", "visible")
+
+
+       occ_rects16
+      .transition()
+      .delay(10)
+      .duration(800)
+      .ease(d3.easeLinear)
+      .attr("x", 465)
+      .attr("y", 260)
+      .attr("fill", "#D7D7D4")
+      .attr("width", 140)
+      .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
 }

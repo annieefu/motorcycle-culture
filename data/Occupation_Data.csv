@@ -1,48 +1,47 @@
-Category,Job
-Business,Business owner
-Business,Entrepreneur 
-Business,VP
-Business,Sales
-Creative,Retired Photographer
-Creative,Author
-Creative,Lobbyist (Music industry)
-Education,Instructor/Observer 
-Education,Student
-Education,Student
-Education,Teacher
-Education,Student
-Education,Research 
-Engineering,Engineer
-Finance,Bookkeeper
-Government,Supervisor of Operations Westchester County  Water Resource Recovery Facility
-Government,Census enumerator
-Hospitality,Server
-Human Services,School psychologist 
-Human Services,Social Worker
-Human Services,Psychologist
-IT,IT Professional
-IT,IT Professional
-IT,IT Manager
-IT,Solutions Architect
-IT,Software Engineer 
-IT,Technology Management
-IT,Business
-IT,Computer Professional
-IT,Computer programmer
-Law,Retired trademark and copyright attorney 
-Law,Attorney
-Law,Lawyer
-Medicine,Dermatology practice manager
-Medicine,Transporter  
-Medicine,Mobile Intensive Care Paramedic 
-Medicine,Retired MD
-Occupation,Occupation?
-Pilot,Pilot
-Real Estate,Commercial Real Estate Management & Brokerage
-Real Estate,Real Estate
-Retired,Retired
-Retired,Retired 
-Retired,Retired
-Trade,CNC Machinist 
-Trade,Wood worker
-Transportation,Retired Transportation Supervisor
+Index,Category,Job
+3,Business,Business owner
+3,Business,Entrepreneur 
+3,Business,VP
+3,Business,Sales
+4,Creative,Retired Photographer
+4,Creative,Author
+4,Creative,Lobbyist (Music industry)
+2,Education,Instructor/Observer 
+2,Education,Student
+2,Education,Student
+2,Education,Teacher
+2,Education,Student
+2,Education,Research 
+6,Engineering,Engineer
+6,Finance,Bookkeeper
+5,Government,Supervisor of Operations Westchester County  Water Resource Recovery Facility
+5,Government,Census enumerator
+6,Hospitality,Server
+4,Human Services,School psychologist 
+4,Human Services,Social Worker
+4,Human Services,Psychologist
+1,IT,IT Professional
+1,IT,IT Professional
+1,IT,IT Manager
+1,IT,Solutions Architect
+1,IT,Software Engineer 
+1,IT,Technology Management
+1,IT,Business
+1,IT,Computer Professional
+1,IT,Computer programmer
+4,Law,Retired trademark and copyright attorney 
+4,Law,Attorney
+4,Law,Lawyer
+3,Medicine,Dermatology practice manager
+3,Medicine,Transporter  
+3,Medicine,Mobile Intensive Care Paramedic 
+3,Medicine,Retired MD
+6,Pilot,Pilot
+5,Real Estate,Commercial Real Estate Management & Brokerage
+5,Real Estate,Real Estate
+4,Retired,Retired
+4,Retired,Retired 
+4,Retired,Retired
+5,Trade,CNC Machinist 
+5,Trade,Wood worker
+1,Transportation,Retired Transportation Supervisor
