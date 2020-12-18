@@ -22,9 +22,12 @@
   <script src="js/arcs.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway&display=swap"
     rel="stylesheet">
-
-
 </head>
+<header>
+  <div style="text-align:center;display: inline-flex; direction: row;"></div>
+  <a href="www.cornelldatajourn.al" style="text-decoration: none;"><img src="images/favicon.svg" width="35px" style=" margin-left: 46%;display: inline-block; order:1; margin-top: 8px;"> <h1 class="headerr" style="display: inline-flex; order:2;margin-left: 5px;margin-top:0px; "> cdj</h1></a>
+</div>
+</header>
 
 <body>
   <div id="graphic">
@@ -138,7 +141,7 @@
 
     <div id="div7">
 
-      <h3> Their Communities: An Insignia Wall</h3>
+      <h3> Their Communities: An Wall of Insignias</h3>
 
       <p id="p7"> With almost every group we spoke to, each had a unique insignia that comprised a cornerstore of their social identity.
         Club insignias are typically created at the founding of the club and rarely change. For older clubs, this means their insignias
@@ -150,7 +153,6 @@
     </div>
 
     <div id="#div8">
-
       <h3>The Sturgis Thing</h3>
 
       <p id="p7"> With the above testaments to the level of deep camaraderie and community building motorcycle culture has to offer,
@@ -235,7 +237,7 @@
       demog_whole.attr('width', 740)
         .attr('height', 300)
       insig.attr("width","1250px")
-        .attr("height", "900px") 
+        .attr("height", "800px") 
       demog_two.attr('width', 700)
         .attr('height', 370)
 
@@ -601,7 +603,7 @@
           
         
         );
-            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-6435) + ")");
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-6635) + ")");
         founding_text.text("Founded: " + select.datum().founded);
         loc_text.text( select.datum().location);
       }

@@ -163,6 +163,13 @@ svg{
   font-size: 40px;
 } */
 
+.headerr{
+  font-size: 36px;
+  letter-spacing: 1px;
+  font-family: Poppins, "Poppins Regular", "Poppins-Regular", "Lexend Deca", "Lexend Deca Regular", "LexendDeca-Regular", Mullish, "Helvetica Neue", Helvetica, arial, sans-serif;
+color: black;
+}
+
 .tooltip{
   fill: white;
   border: solid;
