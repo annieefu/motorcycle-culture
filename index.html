@@ -68,29 +68,42 @@
         can only describe as an expression of total freedom. I decided I needed to learn more about who America's motorcyclists were,
         beginning with Ithaca and New York State.
       </p>
-    </div>
-
-    <div id="div5">
-      <p id = "p5" style="text-align: left;">
-        I asked a few friends what thoughts came to their mind when thinking about motorcyclists, motorcycles, or motorcycle clubs:
-      </p>
-      <svg id="stigma_viz" style="margin-left: -570px;"></svg></br>
-    
-    </div>
-    <div id ="div6">
-      <p id="p6">Their responses that my circles, particularly of friends at Cornell and the University of Michigan,
-        formed their idea of 
-      </p>
-
-      <svg id = "demog_viz" style="margin-left: -27vw;"></svg>
-    </div>
+    </div> </div>
   </div>
+<div class="container-div-2">
+    <div id="div5">
+      <h1>An Overview of New York State Motorcyclists</h1>
+      <p id = "p5" style="text-align: left;">
+        I asked a few friends what thoughts came to their mind when thinking about <strong>motorcyclists, motorcycles, or motorcycle clubs,</strong>
+        and these were a few of the responses I received:
+      </p>
+      <svg id="stigma_viz" style="margin-left: -9vw;" ></svg></br>
+    
+    </div></br></br></br></br>
+    <div id ="div6">
+      <p id="p6"> I realized from these answers that my circles, especially of friends at Cornell and the University of Michigan,
+        predominantly formed their idea of motorcyclists from portrayals in pop culture and media, with only a few of them
+        personally knowing a motorcyclist.
+      </br></br>
+      
 
+    </p>
+    </br></br>
 
+      <svg id = "demog_viz" style="margin-left: -4vw;"></svg>
+       <svg id = "job_list"></svg>
+   <p id="p7">
+    SLDKFJSLKDFJKLDSJFHIS SENTENCE BUT HERE IT IS particularly of friends at Cornell and the University of Michigan,
+    formed their idea of 
+
+   </p>
+
+</div>
+</div>
   <!-- svg -->
   <div class="fixed"><svg id="viz" width="100%" height="100%"></svg></div>
 
-</div><!-- /graphic -->
+<!-- /graphic -->
   
 <script>
 
@@ -102,19 +115,23 @@ const counts_data = await d3.csv("data/counts.csv")
 console.log(occupation_data);
 
 console.log(counts_data);
+
+
   //svg
   let svg = d3.select("#viz");
   let stigma_vis = d3.select("#stigma_viz");
   let demog_vis = d3.select("#demog_viz");
-
+  let job_list = d3.select("#job_list");
 
   //svg width and height
   svg.attr('width',600)
       .attr('height',500)
   stigma_vis.attr('width',1130)
   .attr('height',500)
-  demog_vis.attr('width',700)
-  .attr('height',600)
+  demog_vis.attr('width',900)
+  .attr('height',280)
+  job_list.attr('width',800)
+  .attr('height',30).attr("padding", "0px").style("margin-top", "-20px")
 
 
   //set up grid spacing
@@ -134,10 +151,78 @@ console.log(counts_data);
       'age': randnum(25, 65)
   }));
 
+  job_list.append("text")
+  .text("Jobs:")
+  .attr("x", 12)
+  .attr("y", 12)
+  .attr("font-family", "Open Sans")
+  .style("font-size", "15px")
+  .attr("fill", "#0A0908")
+  .style("font-weight", "bold")
 
-  //create group and join our data to that group
+  let job_append = job_list.append("text")
+  .text("")
+  .attr("x", 52)
+  .attr("y", 12)
+  .attr("font-family", "Open Sans")
+  .style("font-size", "15px")
+  .attr("fill", "#0A0908")
 
 
+  let demog_lgd = demog_vis.append("text")
+  .text("Legend:")
+  .attr("x", 650)
+  .attr("y", 20)
+  .attr("font-family", "Open Sans")
+  .style("font-size", "15px")
+  .attr("fill", "#0A0908")
+  .style("font-weight", "bold");
+
+  demog_vis.append("rect")
+        .attr("fill", "#504436")
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("x", 650)
+        .attr("y", 45)
+        .attr("border-radius", "2px");
+  demog_vis.append("text")
+        .text("6+ Respondents")
+        .style("font-family", "Open Sans")
+        .style("font-size", "14px")
+        .attr("fill", "#0A0908")
+        .attr("x", 683)
+        .attr("y", 59);
+
+  demog_vis.append("rect")
+        .attr("fill", "#A19C95")
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("x", 650)
+        .attr("y", 75)
+        .attr("border-radius", "2px");
+  demog_vis.append("text")
+        .text("3-5 Respondents")
+        .style("font-family", "Open Sans")
+        .style("font-size", "14px")
+        .attr("fill", "#0A0908")
+        .attr("x", 683)
+        .attr("y", 89);
+
+
+  demog_vis.append("rect")
+        .attr("fill", "#BCB9B4")
+        .attr("width", 17)
+        .attr("height", 17)
+        .attr("x", 650)
+        .attr("y", 105)
+        .attr("border-radius", "2px");
+  demog_vis.append("text")
+        .text("1-2 Respondents")
+        .style("font-family", "Open Sans")
+        .style("font-size", "14px")
+        .attr("fill", "#0A0908")
+        .attr("x", 683)
+        .attr("y", 120);
   //create rectangles
 
   let group = svg.selectAll('g')
@@ -164,40 +249,109 @@ console.log(counts_data);
     let stigmatext8 = stigma_vis.append("text");
     let stigmatext9 = stigma_vis.append("text");
 
-    let occ_rects1 = demog_vis.append("rect");
-    let occ_rects2 = demog_vis.append("rect");
-    let occ_rects3 = demog_vis.append("rect");
-    let occ_rects4 = demog_vis.append("rect");
-    let occ_rects5 = demog_vis.append("rect");
-    let occ_rects6 = demog_vis.append("rect");
-    let occ_rects7 = demog_vis.append("rect");
-    let occ_rects8 = demog_vis.append("rect");
-    let occ_rects9 = demog_vis.append("rect");
-    let occ_rects10 = demog_vis.append("rect");
-    let occ_rects11 = demog_vis.append("rect");
-    let occ_rects12 = demog_vis.append("rect");
-    let occ_rects13 = demog_vis.append("rect");
-    let occ_rects14 = demog_vis.append("rect");
-    let occ_rects15 = demog_vis.append("rect");
-    let occ_rects16 = demog_vis.append("rect");
+    let occ_rects1 = demog_vis.append("g").attr("id", "g1");
+    let occ_rects2 = demog_vis.append("g").attr("id", "g2");
+    let occ_rects3 = demog_vis.append("g").attr("id", "g3");
+    let occ_rects4 = demog_vis.append("g").attr("id", "g4");
+    let occ_rects5 = demog_vis.append("g").attr("id", "g5");
+    let occ_rects6 = demog_vis.append("g").attr("id", "g6");
+    let occ_rects7 = demog_vis.append("g").attr("id", "g7");
+    let occ_rects8 = demog_vis.append("g").attr("id", "g8");
+    let occ_rects9 = demog_vis.append("g").attr("id", "g9");
+    let occ_rects10 = demog_vis.append("g").attr("id", "g10");
+    let occ_rects11 = demog_vis.append("g").attr("id", "g11");
+    let occ_rects12 = demog_vis.append("g").attr("id", "g12");
+    occ_rects1.append("rect").attr("id", "or_1");
+    occ_rects1.append("text").attr("id", "ot_1").text("");
+    occ_rects2.append("rect").attr("id", "or_2");
+    occ_rects2.append("text").attr("id", "ot_2").text("") ;
+    occ_rects3.append("rect").attr("id", "or_3");
+    occ_rects3.append("text").attr("id", "ot_3").text("");
+    occ_rects4.append("rect").attr("id", "or_4");
+    occ_rects4.append("text").attr("id", "ot_4").text("");
+    occ_rects5.append("rect").attr("id", "or_5");
+    occ_rects5.append("text").attr("id", "ot_5").text("");
+    occ_rects6.append("rect").attr("id", "or_6");
+    occ_rects6.append("text").attr("id", "ot_6").text("");
+    occ_rects7.append("rect").attr("id", "or_7");
+    occ_rects7.append("text").attr("id", "ot_7").text("");
+    occ_rects8.append("rect").attr("id", "or_8");
+    occ_rects8.append("text").attr("id", "ot_8").text("");
+    occ_rects9.append("rect").attr("id", "or_9");
+    occ_rects9.append("text").attr("id", "ot_9").text("");
+    occ_rects10.append("rect").attr("id", "or_10");
+    occ_rects10.append("text").attr("id", "ot_10").text("");
+    occ_rects11.append("rect").attr("id", "or_11");
+    occ_rects11.append("text").attr("id", "ot_11").text("");
+    occ_rects12.append("rect").attr("id", "or_12");
+    occ_rects12.append("text").attr("id", "ot_12").text("");
 
-    let rects_text1 = demog_vis.append("text");
 
-    let rects_text2 = demog_vis.append("text");
-    let rects_text3 = demog_vis.append("text");
-    let rects_text4 = demog_vis.append("text");
-    let rects_text5 = demog_vis.append("text");
-    let rects_text6 = demog_vis.append("text");
-    let rects_text7 = demog_vis.append("text");
-    let rects_text8 = demog_vis.append("text");
-    let rects_text9 = demog_vis.append("text");
-    let rects_text10 = demog_vis.append("text");
-    let rects_text11 = demog_vis.append("text");
-    let rects_text12 = demog_vis.append("text");
-    let rects_text13 = demog_vis.append("text");
-    let rects_text14 = demog_vis.append("text");
-    let rects_text15 = demog_vis.append("text");
-    let rects_text16 = demog_vis.append("text");
+
+    function handleMouseOver(d, i) {  // Add interactivity
+// Use D3 to select element, change color and size
+let select = d3.select(this)
+  .attr("opacity", ".8");
+  let node = d3.select(this)
+  let rect_id = node._groups[0][0].id
+  console.log(rect_id)
+  if (rect_id == "g1"){
+    job_append
+    .text("Computer Programmer (3),  IT Manager (3),  IT Professional (2),  Solutions Architect (1)")
+  }
+  else if (rect_id == "g2"){
+    job_append
+    .text("Student (3),  Teacher (2), Researcher (1)")
+  }
+  else if (rect_id == "g3"){
+    job_append
+    .text("Business Owner (2), Vice President (1), Salesperson (1)")
+  }
+  else if (rect_id == "g4"){
+    job_append
+    .text("Dermatologist (1), Transporter (1), Mobile Intensive Care Paramedic (1), M.D. (1)")
+  }
+  else if (rect_id == "g5"){
+    job_append
+    .text("Photographer(1), Author (1), Music Lobbyist (1)")
+  }
+  else if (rect_id == "g6"){
+    job_append
+    .text("Psychologist (2), Social Worker (1)")
+  }
+  else if (rect_id == "g7"){
+    job_append
+    .text("Attorney (2), Trademark and Copyright Attorney (1)")
+  }
+  else if (rect_id == "g8"){
+    job_append
+    .text("Retired (3)")
+  }
+  else if (rect_id == "g9"){
+    job_append
+    .text("Supervisor of Operations (1), Water Resource Recovery Manager (1), Census Enumerator (1)")
+  }
+  else if (rect_id == "g10"){
+    job_append
+    .text("Commercial Real Broker (2)")
+  }
+  else if (rect_id == "g11"){
+    job_append
+    .text("CNC Machinist (1), Wood Worker (1)")
+  }
+  else if (rect_id == "g12"){
+    job_append
+    .text("Pilot (1), Engineer (1), Bookkeeper (1), Restaurant Server (1), Transportation Supervisor (1)")
+  }
+}
+
+function handleMouseOut(d, i) {
+// Use D3 to select element, change color back to normal
+d3.select(this)
+  .attr("opacity", "1");
+  job_append
+  .text("")
+}
 
   let titleimgdev = () =>{
     titleimg
@@ -328,9 +482,9 @@ console.log(counts_data);
   let stigmadev = () =>{
     stigmatext
     .transition()
-        .delay( 500 ) 
+        .delay( 400 ) 
         .duration(500)
-        .ease(d3.easeLinear)
+        // .ease(d3.easeLinear)
         .attr("x", 30)
         .attr("y", 180)
         .attr("fill", "grey")
@@ -340,9 +494,9 @@ console.log(counts_data);
         .text('"Leather; cigarettes"');
     stigmatext2
     .transition()
-    .delay( 1500 )
-        .duration(600)
-        .ease(d3.easeLinear)
+    .delay( 600 )
+        .duration(700)
+        // .ease(d3.easeLinear)
         .attr("x", 260)
         .attr("y", 380)
         .attr("fill", "grey")
@@ -353,9 +507,9 @@ console.log(counts_data);
 
     stigmatext3
     .transition()
-    .delay( 2500 )
+    .delay( 800 )
         .duration(600)
-        .ease(d3.easeLinear)
+        // .ease(d3.easeLinear)
         .attr("x", 460)
         .attr("y", 80)
         .attr("fill", "grey")
@@ -366,9 +520,9 @@ console.log(counts_data);
 
     stigmatext4
     .transition()
-    .delay( 3500 )
-        .duration(700)
-        .ease(d3.easeLinear)
+    .delay( 1000 )
+        .duration(500)
+        // .ease(d3.easeLinear)
         .attr("x", 50)
         .attr("y", 280)
         .attr("fill", "grey")
@@ -378,8 +532,8 @@ console.log(counts_data);
         .text('"I don\'t know much about them, i think there might be some sort of stigma around them"');
     stigmatext5
     .transition()
-    .delay( 4600 )
-        .duration(700)
+    .delay( 1200 )
+        .duration(500)
         .ease(d3.easeLinear)
         .attr("x", 600)
         .attr("y", 480)
@@ -390,7 +544,7 @@ console.log(counts_data);
         .text('"I think of Sons of Anarchy, beards, and leather jackets"');
     stigmatext6
     .transition()
-    .delay( 5400 )
+    .delay( 1500 )
         .duration(800)
         .ease(d3.easeLinear)
         .attr("x", 700)
@@ -403,8 +557,8 @@ console.log(counts_data);
   
     stigmatext7
     .transition()
-    .delay( 6400 )
-        .duration(1000)
+    .delay( 1900 )
+        .duration(600)
         .attr("x", 340)
         .attr("y", 190)
         .attr("fill", "grey")
@@ -414,8 +568,8 @@ console.log(counts_data);
         .text('"Leather, tough people, and being carefree"');
     stigmatext8
     .transition()
-    .delay( 7300 )
-        .duration(1000)
+    .delay( 2500 )
+        .duration(500)
         .attr("x", 40)
         .attr("y", 480)
         .attr("fill", "grey")
@@ -427,224 +581,289 @@ console.log(counts_data);
   
   }
 
-
 let occupation_grid = () => {
-  occ_rects1    
+  
+  occ_rects1.selectAll("#or_1")
       .transition()
-      .delay(10)
+      .delay(100)
       .duration(800)
       .ease(d3.easeLinear)
-        .attr("x", 0)
+        .attr("x", 5)
         .attr("y", 5)
         .attr("fill", "#504436")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
-  rects_text1
-    .attr("x", 50)
-    .attr("y", 35)
+       .attr("z-index", 99)
+  occ_rects1.selectAll("#ot_1")
+    .text("IT")
+    .attr("x", 67)
+    .attr("y", 45)
     .attr("fill", "#F2F4F3")
-    .attr("font-size", "22px")
+    .style("font-size", "18px")
 
-  occ_rects2   
+  occ_rects2.selectAll("#or_2")
       .transition()
-      .delay(10)
+      .delay(200)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 155)
+      .attr("x", 160)
       .attr("y", 5)
-      .attr("fill", "#6B6156")
+      .attr("fill", "#504436")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+    occ_rects2.selectAll("#ot_2")
+    .attr("x", 187)
+    .attr("y", 45)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "19px")
+    .text("Education")
 
   
-    occ_rects3 
+    occ_rects3.selectAll("#or_3")
       .transition()
-      .delay(10)
+      .delay(300)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 310)
+      .attr("x", 315)
       .attr("y", 5)
-      .attr("fill", "#867F75")
+      .attr("fill", "#A19C95")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+  occ_rects3.selectAll("#ot_3")
+    .attr("x", 347)
+    .attr("y", 45)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "19px")
+    .text("Business")
 
-       occ_rects4
+  occ_rects4.selectAll("#or_4")
       .transition()
-      .delay(10)
+      .delay(400)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 465)
+      .attr("x", 470)
       .attr("y", 5)
-      .attr("fill", "#867F75")
+      .attr("fill", "#A19C95")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+    occ_rects4.selectAll("#ot_4")
+    .attr("x", 501)
+    .attr("y", 45)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "19px")
+    .text("Medicine")
 
-       occ_rects5
+   occ_rects5.selectAll("#or_5")
       .transition()
-      .delay(10)
+      .delay(500)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 0)
+      .attr("x", 5)
       .attr("y", 90)
       .attr("fill", "#A19C95")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+   occ_rects5.selectAll("#ot_5")
+    .attr("x", 40)
+    .attr("y", 129)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "19px")
+    .text("Creative")
 
-       occ_rects6
+  occ_rects6.selectAll("#or_6")
       .transition()
-      .delay(10)
+      .delay(600)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 155)
+      .attr("x", 160)
       .attr("y", 90)
       .attr("fill", "#A19C95")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+    occ_rects6.selectAll("#ot_6")
+    .attr("x", 164)
+    .attr("y", 129)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "18px")
+    .text("Human Services")
 
-       occ_rects7
+    occ_rects7.selectAll("#or_7")
       .transition()
-      .delay(10)
+      .delay(700)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 310)
+      .attr("x", 315)
       .attr("y", 90)
       .attr("fill", "#A19C95")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+    occ_rects7.selectAll("#ot_7")
+    .attr("x", 367)
+    .attr("y", 129)
+    .attr("fill", "#F2F4F3")
+    .style("font-size", "18px")
+    .text("Law")
     
-       occ_rects8
-      .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 465)
-      .attr("y", 90)
-      .attr("fill", "#A19C95")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
+    occ_rects8.selectAll("#or_8")
+  .transition()
+  .delay(800)
+  .duration(800)
+  .ease(d3.easeLinear)
+  .attr("x", 470)
+  .attr("y", 90)
+  .attr("fill", "#A19C95")
+  .attr("width", 140)
+  .attr("height", 70)
+    .attr("opacity", "1")
+    .attr("display", "visible")
+    
+  occ_rects8.selectAll("#ot_8")
+  .attr("x", 510)
+  .attr("y", 129)
+  .attr("fill", "#F2F4F3")
+  .style("font-size", "18px")
+  .text("Retired")
 
-       occ_rects9
+    occ_rects9.selectAll("#or_9")
+  .transition()
+  .delay(900)
+  .duration(800)
+  .ease(d3.easeLinear)
+  .attr("x", 5)
+  .attr("y", 175)
+  .attr("fill", "#BCB9B4")
+  .attr("width", 140)
+  .attr("height", 70)
+    .attr("opacity", "1")
+    .attr("display", "visible")
+  occ_rects9.selectAll("#ot_9")
       .transition()
-      .delay(10)
+      .delay(900)
+      .duration(5)
+    .attr("x", 25)
+    .attr("y", 216)
+    .attr("fill", "#504436")
+    .style("font-size", "18px")
+    .text("Government")
+
+    occ_rects10.selectAll("#or_10")
+      .transition()
+      .delay(1000)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 0)
+      .attr("x", 160)
       .attr("y", 175)
       .attr("fill", "#BCB9B4")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
-
-       occ_rects10
+    occ_rects10.selectAll("#ot_10")
       .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 155)
-      .attr("y", 175)
-      .attr("fill", "#BCB9B4")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
+      .delay(1000)
+      .duration(5)
+    .attr("x", 185)
+    .attr("y", 216)
+    .attr("fill", "#504436")
+    .style("font-size", "18px")
+    .text("Real Estate")
       
-       occ_rects11
+    occ_rects11.selectAll("#or_11")
       .transition()
-      .delay(10)
+      .delay(1100)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 310)
+      .attr("x", 315)
       .attr("y", 175)
       .attr("fill", "#BCB9B4")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
-
-       occ_rects12
+    occ_rects11.selectAll("#ot_11")
       .transition()
-      .delay(10)
+      .delay(1100)
+      .duration(5)
+    .attr("x", 360)
+    .attr("y", 216)
+    .attr("fill", "#504436")
+    .style("font-size", "18px")
+    .text("Trade")
+
+    occ_rects12.selectAll("#or_12")
+      .transition()
+      .delay(1200)
       .duration(800)
       .ease(d3.easeLinear)
-      .attr("x", 465)
+      .attr("x", 470)
       .attr("y", 175)
-      .attr("fill", "#D7D7D4")
+      .attr("fill", "#BCB9B4")
       .attr("width", 140)
       .attr("height", 70)
        .attr("opacity", "1")
        .attr("display", "visible")
+    occ_rects12.selectAll("#ot_12")
+      .transition()
+      .delay(1200)
+      .duration(5)
+    .attr("x", 516)
+    .attr("y", 216)
+    .attr("fill", "#504436")
+    .style("font-size", "18px")
+    .text("Other")
 
-       occ_rects13
-      .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 0)
-      .attr("y", 260)
-      .attr("fill", "#D7D7D4")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
-       occ_rects14
-      .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 155)
-      .attr("y", 260)
-      .attr("fill", "#D7D7D4")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
-      
-       occ_rects15
-      .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 310)
-      .attr("y", 260)
-      .attr("fill", "#D7D7D4")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
-
-
-       occ_rects16
-      .transition()
-      .delay(10)
-      .duration(800)
-      .ease(d3.easeLinear)
-      .attr("x", 465)
-      .attr("y", 260)
-      .attr("fill", "#D7D7D4")
-      .attr("width", 140)
-      .attr("height", 70)
-       .attr("opacity", "1")
-       .attr("display", "visible")
 }
 
-
+occ_rects1
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects2
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects3
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects4
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects5
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects6
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects7
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects8
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects9
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects10
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects11
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
+occ_rects12
+.on("mouseover", handleMouseOver)
+.on("mouseout", handleMouseOut)
   // // square grid
   // let grid = () =>{
   //   rects
@@ -780,13 +999,11 @@ let occupation_grid = () => {
   new scroll('div3', '36%', shantanudev, sunimgdev);
   new scroll('div4', '84%', quotedev, shantanudev);
   new scroll('div5', '20%', stigmadev, quotedev);
-  new scroll('div5', '55%', occupation_grid, stigmadev);
+  new scroll('div6', '55%', occupation_grid, stigmadev);
   // new scroll('div5', '35%', stigmadev4, stigmadev3);
   // new scroll('div5', '15%', stigmadev5, stigmadev4);
 
-
-
-  //start grid on page load
+ 
   
 titleimgdev();
 }
