@@ -116,7 +116,7 @@
     </div>
 
     <div id="div7">
-      <svg id="insignia_wall"></svg>
+      <svg id="insignia_wall" style="margin-left: -4vw;"></svg>
     </div>
   </div>
   <!-- svg -->
@@ -164,8 +164,8 @@
         .attr('height', 30).attr("padding", "0px").style("margin-top", "-20px")
       demog_whole.attr('width', 700)
         .attr('height', 300)
-      insig.attr("width","800px")
-        .attr("height", "600px")
+      insig.attr("width","900px")
+        .attr("height", "900px")
 
 
       //set up grid spacing
@@ -1054,10 +1054,68 @@
         });
   console.log(data);
 
-        insig_group.append("svg")
+        // insig_group.selectAll("image").data(data)
+        // .append('pattern')
+        // .attr('x', 15)
+        // .attr('y', 15)
+        // .attr('width', 45)
+        // .attr('height', 45)
+        // .attr('class', 'insignia')
+        // .attr("xlink:href", function(d) { return d.insignia;});
+
+        var insigs = insig_group.selectAll("g")
         .data(data)
-        .join()
-  
+        .enter()
+        .append('g')
+        insigs.select('g')
+        .data(data)
+        .enter()
+        .append('image')
+        .attr("x", function(d,i) {
+          if (i<=5) {
+          return 140*i;
+        }
+        else if (i>=6 && i<=11){
+          return (140*i-825);
+        }
+        else if (i>=12 && i<=17){
+          return (140*i-1668);
+        }
+        else if (i>=18 && i<=23){
+          return (140*i-2510);
+        }
+        else if (i>=24 && i<=29){
+          return (140*i-3110);
+        }
+        
+        })
+        .attr("y", function(d,i) {
+          if (i<=5) {
+          return 40;
+        }
+        else if (i>=6 && i<=11){
+          return 220;
+        }
+
+        else if (i>=12 && i<=17){
+          return 400;
+        }
+        else if (i>=18 && i<=23){
+          return 580;
+        }
+
+        else if (i>=24 && i<=29){
+          return 700;
+        }
+        }
+        )
+        .attr("width", "125px")
+        .attr("height", "125px")
+        .attr("max-width", "100%")
+        .attr("max-height", "100%")
+        .attr("href", function(d) { return "/"+ String(d.insignias)})
+
+    
 });
 
 
