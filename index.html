@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Oswald:wght@400;500;600&display=swap"
     rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway&display=swap"
     rel="stylesheet">
@@ -343,8 +345,8 @@
 
       let insig_group = insig.append("g").attr("id", "insig_group");
 
-      let tooltip_width = 160;
-        let tooltip_height = 90;
+      let tooltip_width = 180;
+        let tooltip_height = 60;
 
 
 
@@ -356,28 +358,27 @@
 
         tooltip.append("rect")
           .attr("fill", "#F2F4F3")
-          .attr("stroke", "#49111C")
-          .attr("stroke-width", "4px")
-          .style("stroke-radius", "4px")
           .attr("opacity", 1)
           .attr("width", tooltip_width)
           .attr("height", tooltip_height);
 
         //create the text box with info about the restuarant being hovered over
         let name_text = tooltip.append("text")
-          .attr("fill", "#1D3557")
-          .attr("font-family", "Open-Sans")
-          .attr("color", "#E63946")
-          .attr("font-size", "18px")
+          .attr("fill", "#0A0908")
+          .attr("font-family", "'Noto Serif', serif")
+          .attr("color", "#0A0908")
+          .attr("font-weight", "300")
+          .attr("font-size", "15px")
           .attr("text-anchor", "middle")
           .attr("alignment-baseline", "hanging")
           .attr("x", tooltip_width / 2.0)
           .attr("y", 8);
 
         let founding_text = tooltip.append("text")
-          .attr("fill", "#1D3557")
-          .attr("font-family", "Open-Sans")
-          .attr("font-size", "18px")
+          .attr("fill", "#0A0908")
+          .attr("font-family", "'Noto Serif', sans-serif")
+          .attr("font-size", "15px")
+          .attr("font-weight", "300")
           .attr("text-anchor", "middle")
           .attr("alignment-baseline", "hanging")
           .attr("x", tooltip_width / 2.0)
@@ -480,8 +481,18 @@
         let select = d3.select(this)
         console.log(select.datum())
         console.log( d3.event.pageX, d3.event.pageY)
-        name_text.text(select.datum().name);
-            tooltip.attr("transform", "translate(" + (d3.event.pageX-300) + "," + (d3.event.pageY-5800) + ")");
+        name_text.text(function() {
+          if (select.datum().name == "Indian Motorcycle Riders Group of Mineola, Inc."){
+            return "Indian Motorcycle Riders"
+          }
+          else {
+            return select.datum().name;
+          }
+        }
+          
+        
+        );
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-300) + "," + (d3.event.pageY-5785) + ")");
         founding_text.text("Founded: " + select.datum().founded);
       }
 
