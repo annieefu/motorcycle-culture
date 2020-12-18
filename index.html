@@ -135,7 +135,9 @@
         , 36, 31, 43, 33, 63, 30, 29, 27, 42, 24, 52, 52, 71, 47, 33, 62, 39, 30, 19, 35, 41, 26, 21, 65, 20, 46, 35, 27, 55, 48, 38, 55, 62, 63, 56]
       bin_age_data = [9, 5, 8, 16, 11]
       bin_mem_years = [11,14,5,1,2]
-      
+
+
+      // let club_stats = await d3.csv("data/Club_stats.csv")
 
       // console.log(occupation_data);
 
@@ -325,7 +327,7 @@
       occ_rects12.append("text").attr("id", "ot_12").text("");
       
 
-      insig.append("g").attr("id", "insig_group");
+      let insig_group = insig.append("g").attr("id", "insig_group");
 
       function handleMouseOver(d, i) {  // Add interactivity
         // Use D3 to select element, change color and size
@@ -1041,6 +1043,23 @@
       .attr("y", 230)
       .text("65-75")
       .style("font-size", "16px")
+
+
+      d3.csv("/data/Club_stats.csv", function(data) {
+        data.forEach(function(d) {
+          d['name'] = d.Name;
+          d['founded'] = d['Founding Year']
+          d['insignias'] = d['Insignia']
+          d['location'] = d['Location']
+        });
+  console.log(data);
+
+        insig_group.append("svg")
+        .data(data)
+        .join()
+  
+});
+
 
 
       // // square grid
