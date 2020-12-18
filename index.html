@@ -6,6 +6,9 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/d3.v4.js"></script>
+
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-ease.v2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,12 +16,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Oswald:wght@400;500;600&display=swap"
     rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <script src="js/arcs.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway&display=swap"
     rel="stylesheet">
-  <script src="https://d3js.org/d3-ease.v2.min.js"></script>
+
 
 </head>
 
@@ -93,8 +97,8 @@
       <svg id="stigma_viz" style="margin-left: -9vw;"></svg></br>
 
     </div></br></br></br></br>
-    <div id="div6" style="margin-left: -2vw;">
-      <p id="p6" style="font-size: 18px"> I realized from these answers that my circles, especially of friends at Cornell and the University of
+    <div id="div6" style="margin-left: -0vw;">
+      <p id="p6" style="font-size: 16px"> I realized from these answers that my circles, especially of friends at Cornell and the University of
         Michigan,
         predominantly formed their idea of motorcyclists from portrayals in pop culture and media, with only a few of
         them
@@ -102,16 +106,26 @@
         </br></br>
         To actually find out what and who motorcycle culture consists of, we reached out to motorcycle clubs, riding
         groups, and
-        organizations around the state. After conducting over a dozen individual and group interviews and garnering over
-        eighty responses
-        on a Google Form, here's what we found:
+        organizations around the state and learned more about them through individual and group interviews. By the end of three weeks, we 
+        met riders from over seventeen clubs and gathered more than 
+        eighty responses on a Google Form:
       </p></br></br>
       <div class="demog_split">
+
+      <h5> <i> Hover for Frequency Details</i></h5></br>
 <div style="display: inline;">
-        <h3 style="display: inline;"> Their Ages</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Years of M.C. Membership</h3style="display: inline;">
+        <h3 style="display: inline;"> Their Ages</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Years of M.C. Membership</h3>
       </div>
         <svg id="demog_whole" style="margin-left: -2vw;"></svg>
       </div>
+
+      <div class="demog_split">
+        <div style="display: inline;">
+                <h3 style="display: inline;"> Their Genders</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Mileage</h3>
+              </div>
+                <svg id="demog_two" style="margin-left: -2vw;"></svg>
+              </div>
+      <p> </p></br></br>
       <h3> Their Occupations</h3>
       <h5> <i> Hover for Job Details</i></h5>
       <svg id="demog_viz" style="margin-left: 0vw;"></svg>
@@ -122,10 +136,22 @@
 
       <h3> Their Communities: An Insignia Wall</h3>
 
-      <p id="p7"> </p>
+      <p id="p7"> </p></br><br>
 
       <h5> <i> Hover for Group Details</i></h5>
       <svg id="insignia_wall" style="margin-left: -15vw;"></svg>
+    </div>
+
+    <div id="#div8">
+
+      <h3> STURGIS</h3>
+
+      <p id="p7"> </p>
+
+      <h5> <i> Hover for Attendance Details</i></h5>
+      <div id='map' style="margin-left: -5vw;">
+
+      </div>
     </div>
   </div>
   <!-- svg -->
@@ -161,6 +187,7 @@
       let job_list = d3.select("#job_list");
       let demog_whole = d3.select("#demog_whole");
       let insig = d3.select("#insignia_wall");
+      let demog_two = d3.select("#demog_two");
 
       //svg width and height
       svg.attr('width', 600)
@@ -171,10 +198,12 @@
         .attr('height', 280)
       job_list.attr('width', 800)
         .attr('height', 30).attr("padding", "0px").style("margin-top", "-20px")
-      demog_whole.attr('width', 700)
+      demog_whole.attr('width', 740)
         .attr('height', 300)
       insig.attr("width","1250px")
-        .attr("height", "900px")
+        .attr("height", "900px") 
+      demog_two.attr('width', 700)
+        .attr('height', 370)
 
 
       //set up grid spacing
@@ -276,9 +305,15 @@
       let demog_ages = demog_whole.append("g").attr("id", "demog_vis")
         .on("mouseover", demogMouseOver)
         .on("mouseout", demogMouseOut) // age
-      let demog_years = demog_whole.append("g").attr("id", "demog_vis") //gender
+      let demog_years = demog_whole.append("g").attr("id", "demog_vis") 
+      //gender
       // miles ride per year
       // how long they've been in the club
+
+      let demog_gender = demog_two.append("g").attr("id", "demog_vis2")
+        .on("mouseover", demog2MouseOver)
+        .on("mouseout", demog2MouseOut) // age
+      let demog_mileage = demog_two.append("g").attr("id", "demog_vis2")
 
       //create the objects
       let titleimg = group.append("svg:image");
@@ -288,19 +323,6 @@
       let shantanuimg = group.append("svg:image");
 
 
-
-
-
-      // let tooltip = d3.select("insig")
-      //   .append("rect")
-      //   .attr("class", "tooltip")
-      //   .style("opacity", 0)
-      //   .append("text")
-      //   .append("id", "name1")
-      //   .style("opacity", 0)
-      //   .append("text")
-      //   .append("id", "founded")
-      //   .style("opacity", 0);
 
       let stigmatext = stigma_vis.append("text");
       let stigmatext2 = stigma_vis.append("text");
@@ -481,6 +503,8 @@
             .attr("stroke", "#49111C")
             .attr("stroke-width", "2px")
              }
+          demog_ages.selectAll(".text")
+             .attr("display", "visible")
       }
 
       function demogMouseOut(d, i) {
@@ -489,7 +513,40 @@
           .attr("opacity", "1")
             .attr("stroke", "none")
             .attr("stroke-width", "0px");
+
+          demog_ages.selectAll(".text")
+             .attr("display", "none")
       }
+
+      function demog2MouseOver(d, i) {  // Add interactivity
+        // Use D3 to select element, change color and size
+        
+        let select = d3.select(this)
+        let node = d3.select(this)
+        let rect_id = node._groups[0][0].id
+        console.log(rect_id)
+        if (rect_id == "demog_vis2" ) {
+          demog_gender.selectAll("rect")
+            .attr("stroke", "#49111C")
+            .attr("stroke-width", "2px")
+             }
+
+          demog_two.selectAll(".text")
+             .attr("display", "visible")
+      }
+
+
+      function demog2MouseOut(d, i) {
+        // Use D3 to select element, change color back to normal
+        demog_two.selectAll("rect")
+          .attr("opacity", "1")
+            .attr("stroke", "none")
+            .attr("stroke-width", "0px")
+          demog_two.selectAll(".text")
+             .attr("display", "none");
+      }
+
+
 
       function insigmouseover(d, i) {  // Add interactivity
         // Use D3 to select element, change color and size
@@ -773,7 +830,7 @@
           .attr("x", 67)
           .attr("y", 45)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
 
         occ_rects2.selectAll("#or_2")
           .transition()
@@ -791,7 +848,7 @@
           .attr("x", 187)
           .attr("y", 45)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "19px")
+          .style("font-size", "17px")
           .text("Education")
 
 
@@ -811,7 +868,7 @@
           .attr("x", 347)
           .attr("y", 45)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "19px")
+          .style("font-size", "17px")
           .text("Business")
 
         occ_rects4.selectAll("#or_4")
@@ -830,7 +887,7 @@
           .attr("x", 501)
           .attr("y", 45)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "19px")
+          .style("font-size", "17px")
           .text("Medicine")
 
         occ_rects5.selectAll("#or_5")
@@ -849,7 +906,7 @@
           .attr("x", 40)
           .attr("y", 129)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "19px")
+          .style("font-size", "17px")
           .text("Creative")
 
         occ_rects6.selectAll("#or_6")
@@ -868,7 +925,7 @@
           .attr("x", 164)
           .attr("y", 129)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Human Services")
 
         occ_rects7.selectAll("#or_7")
@@ -887,7 +944,7 @@
           .attr("x", 367)
           .attr("y", 129)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Law")
 
         occ_rects8.selectAll("#or_8")
@@ -907,7 +964,7 @@
           .attr("x", 510)
           .attr("y", 129)
           .attr("fill", "#F2F4F3")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Retired")
 
         occ_rects9.selectAll("#or_9")
@@ -929,7 +986,7 @@
           .attr("x", 25)
           .attr("y", 216)
           .attr("fill", "#504436")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Government")
 
         occ_rects10.selectAll("#or_10")
@@ -951,7 +1008,7 @@
           .attr("x", 185)
           .attr("y", 216)
           .attr("fill", "#504436")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Real Estate")
 
         occ_rects11.selectAll("#or_11")
@@ -973,7 +1030,7 @@
           .attr("x", 360)
           .attr("y", 216)
           .attr("fill", "#504436")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Trade")
 
         occ_rects12.selectAll("#or_12")
@@ -995,7 +1052,7 @@
           .attr("x", 516)
           .attr("y", 216)
           .attr("fill", "#504436")
-          .style("font-size", "18px")
+          .style("font-size", "17px")
           .text("Other")
 
       }
@@ -1049,6 +1106,13 @@
       .attr("y", 30)
       .text("1-10")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 650)
+      .attr("y", 30)
+      .text("11")
+      .attr("class", "text")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 480)
       .attr("y", 55)
@@ -1060,6 +1124,13 @@
       .attr("y", 80)
       .text("10-20")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 695)
+      .attr("y", 80)
+      .text("14")
+      .attr("class", "text")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 480)
       .attr("y", 105)
@@ -1071,6 +1142,13 @@
       .attr("y", 130)
       .text("20-30")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 560)
+      .attr("y", 130)
+      .text("5")
+      .attr("class", "text")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 480)
       .attr("y", 155)
@@ -1082,6 +1160,13 @@
       .attr("y", 180)
       .text("30-40")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 500)
+      .attr("y", 180)
+      .attr("class", "text")
+      .text("1")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 480)
       .attr("y", 205)
@@ -1093,6 +1178,180 @@
       .attr("y", 230)
       .text("40-50")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 516)
+      .attr("y", 230)
+      .attr("class", "text")
+      .text("2")
+      .style("font-size", "16px")
+      .attr("display","none")
+
+
+      //GENDER
+      demog_gender.append("rect")
+      .attr("x", 85)
+      .attr("y", 5)
+      .attr("width", .946*200)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 35)
+      .attr("y", 30)
+      .text("Male")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 279)
+      .attr("y", 30)
+      .attr("class", "text")
+      .text("70")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 85)
+      .attr("y", 55)
+      .attr("width", .054*200)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 19)
+      .attr("y", 80)
+      .text("Female")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 101)
+      .attr("y", 80)
+      .attr("class", "text")
+      .text("4")
+      .style("font-size", "16px")
+      .attr("display","none")
+
+      // MILES TRAVELED
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 5)
+      .attr("width", 8*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 438)
+      .attr("y", 30)
+      .text("1-10")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 565)
+      .attr("y", 30)
+      .attr("class", "text")
+      .text("8")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 55)
+      .attr("width", 20*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 80)
+      .text("10-20")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 685)
+      .attr("y", 80)
+      .attr("class", "text")
+      .text("20")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 105)
+      .attr("width", 10*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 130)
+      .text("20-30")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 585)
+      .attr("y", 130)
+      .attr("class", "text")
+      .text("10")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 155)
+      .attr("width", 4*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 180)
+      .text("30-40")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 530)
+      .attr("y", 180)
+      .attr("class", "text")
+      .text("4")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 205)
+      .attr("width", 5*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 230)
+      .text("40-50")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 540)
+      .attr("y", 230)
+      .attr("class", "text")
+      .text("5")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 255)
+      .attr("width", 0*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 280)
+      .text("40-50")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 480)
+      .attr("y", 280)
+      .attr("class", "text")
+      .text("0")
+      .style("font-size", "16px")
+      .attr("display","none")
+      demog_gender.append("rect")
+      .attr("x", 480)
+      .attr("y", 305)
+      .attr("width", 2*10)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_gender.append("text")
+      .attr("x", 430)
+      .attr("y", 330)
+      .text("40-50")
+      .style("font-size", "16px")
+      demog_gender.append("text")
+      .attr("x", 513)
+      .attr("y", 330)
+      .attr("class", "text")
+      .text("2")
+      .style("font-size", "16px")
+      .attr("display","none")
 
 
       //YEARS OF MEMBERSHIP
@@ -1107,6 +1366,13 @@
       .attr("y", 30)
       .text("25-35")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 228)
+      .attr("y", 30)
+      .attr("class", "text")
+      .text("9")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 85)
       .attr("y", 55)
@@ -1118,6 +1384,13 @@
       .attr("y", 80)
       .text("35-45")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 164)
+      .attr("y", 80)
+      .attr("class", "text")
+      .text("5")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 85)
       .attr("y", 105)
@@ -1129,6 +1402,13 @@
       .attr("y", 130)
       .text("45-55")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 218)
+      .attr("y", 130)
+      .attr("class", "text")
+      .text("8")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 85)
       .attr("y", 155)
@@ -1140,6 +1420,13 @@
       .attr("y", 180)
       .text("55-65")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 331)
+      .attr("y", 180)
+      .attr("class", "text")
+      .text("16")
+      .style("font-size", "16px")
+      .attr("display","none")
       demog_ages.append("rect")
       .attr("x", 85)
       .attr("y", 205)
@@ -1151,6 +1438,13 @@
       .attr("y", 230)
       .text("65-75")
       .style("font-size", "16px")
+      demog_ages.append("text")
+      .attr("x", 255)
+      .attr("y", 230)
+      .attr("class", "text")
+      .text("11")
+      .style("font-size", "16px")
+      .attr("display","none")
 
 
       d3.csv("/data/Club_stats.csv", function(data) {

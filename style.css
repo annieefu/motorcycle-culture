@@ -10,7 +10,7 @@ body{
    scroll-behavior: smooth;
    background: #C8D0CC;
    color: #0A0908;
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Noto Serif', serif;
    font-weight: 300;
 }
 
@@ -35,7 +35,7 @@ h2{
   line-height: 1.25;
   padding-top: 15px;
   font-weight: 300;
-  font-familY: 'Open-Sans', sans-serif;
+  font-familY: 'Noto Serif', serif;
   color: #0A0908;
   font-size: 18px;
 }
@@ -45,10 +45,10 @@ b{
 }
 
 #p1{
-    font-family: 'Open-Sans', sans-serif;
+    font-family: 'Amiri', serif;
     color: #0A0908;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 200;
   position: absolute;
     position: sticky;
     top: 26vh;
@@ -69,7 +69,7 @@ p {
 }
 
 #p2 {
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
   font-weight: 300;
@@ -98,7 +98,7 @@ h5{
   margin-left: -31vw;
   width: 54vw;
   text-align: justify;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
   font-weight: 300;
@@ -115,7 +115,7 @@ h5{
   margin-top:8vh;
   width: 54vw;
   text-align: left;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
   font-weight: 300;
@@ -129,10 +129,10 @@ h5{
 #p6 #p7{
   width: 44vw;
   text-align: left;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 19px;
-  font-weight: 300;
+  font-weight: 200;
   /* position: relative; */
 }
 
@@ -234,3 +234,37 @@ strong{
 
 
    
+
+/* NEW STUFF */
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.fill {
+  fill: #49111C;
+}
+
+.graticule {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .2px;
+  stroke-opacity: .7;
+}
+
+.land {
+  fill: #0A0908;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.arc {
+	stroke: #5E503F;
+	fill:	#A9927D;
+	stroke-width: 1.4;
+}
