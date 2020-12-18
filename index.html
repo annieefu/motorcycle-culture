@@ -104,22 +104,19 @@
         on a Google Form, here's what we found:
       </p></br></br>
       <div class="demog_split">
-
-        <h3> Their Ages</h3>
-        <h3> Their Genders</h3>
-
+<div style="display: inline;">
+        <h3 style="display: inline;"> Their Ages</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Years of M.C. Membership</h3style="display: inline;">
+      </div>
         <svg id="demog_whole" style="margin-left: -4vw;"></svg>
       </div>
       </br></br>
       <h3> Their Occupations</h3>
       <svg id="demog_viz" style="margin-left: -4vw;"></svg>
       <svg id="job_list" style="margin-left: -3vw"></svg>
-      <p id="p7">
-        SLDKFJSLKDFJKLDSJFHIS SENTENCE BUT HERE IT IS particularly of friends at Cornell and the University of Michigan,
-        formed their idea of
+    </div>
 
-      </p>
-
+    <div id="div7">
+      <svg id="insignia_wall"></svg>
     </div>
   </div>
   <!-- svg -->
@@ -152,6 +149,7 @@
       let demog_vis = d3.select("#demog_viz");
       let job_list = d3.select("#job_list");
       let demog_whole = d3.select("#demog_whole");
+      let insig = d3.select("#insignia_wall");
 
       //svg width and height
       svg.attr('width', 600)
@@ -163,7 +161,9 @@
       job_list.attr('width', 800)
         .attr('height', 30).attr("padding", "0px").style("margin-top", "-20px")
       demog_whole.attr('width', 700)
-        .attr('height', 400)
+        .attr('height', 300)
+      insig.attr("width","800px")
+        .attr("height", "600px")
 
 
       //set up grid spacing
@@ -262,8 +262,10 @@
         .data(our_data)
         .enter()
         .append("g")
-      let demog_ages = demog_whole.append("g").attr("id", "demog_vis") // age
-      let demog_gender = demog_whole.append("g").attr("id", "demog_vis") //gender
+      let demog_ages = demog_whole.append("g").attr("id", "demog_vis")
+        .on("mouseover", demogMouseOver)
+        .on("mouseout", demogMouseOut) // age
+      let demog_years = demog_whole.append("g").attr("id", "demog_vis") //gender
       // miles ride per year
       // how long they've been in the club
 
@@ -321,9 +323,9 @@
       occ_rects11.append("text").attr("id", "ot_11").text("");
       occ_rects12.append("rect").attr("id", "or_12");
       occ_rects12.append("text").attr("id", "ot_12").text("");
+      
 
-      // demog group
-
+      insig.append("g").attr("id", "insig_group");
 
       function handleMouseOver(d, i) {  // Add interactivity
         // Use D3 to select element, change color and size
@@ -390,6 +392,29 @@
           .text("")
       }
 
+
+
+      function demogMouseOver(d, i) {  // Add interactivity
+        // Use D3 to select element, change color and size
+        
+        let select = d3.select(this)
+        let node = d3.select(this)
+        let rect_id = node._groups[0][0].id
+        console.log(rect_id)
+        if (rect_id == "demog_vis" ) {
+          demog_ages.selectAll("rect")
+            .attr("stroke", "#49111C")
+            .attr("stroke-width", "2px")
+             }
+      }
+
+      function demogMouseOut(d, i) {
+        // Use D3 to select element, change color back to normal
+        demog_ages.selectAll("rect")
+          .attr("opacity", "1")
+            .attr("stroke", "none")
+            .attr("stroke-width", "0px");
+      }
       let titleimgdev = () => {
         titleimg
           .transition()
@@ -901,6 +926,123 @@
       occ_rects12
         .on("mouseover", handleMouseOver)
         .on("mouseout", handleMouseOut)
+
+      // DEMOGRAPHIC VIS [11,14,5,1,2]
+      demog_ages.append("rect")
+      .attr("x", 480)
+      .attr("y", 5)
+      .attr("width", 11*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 438)
+      .attr("y", 30)
+      .text("1-10")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 480)
+      .attr("y", 55)
+      .attr("width", 14*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 430)
+      .attr("y", 80)
+      .text("10-20")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 480)
+      .attr("y", 105)
+      .attr("width", 5*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 430)
+      .attr("y", 130)
+      .text("20-30")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 480)
+      .attr("y", 155)
+      .attr("width", 1*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 430)
+      .attr("y", 180)
+      .text("30-40")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 480)
+      .attr("y", 205)
+      .attr("width", 2*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 430)
+      .attr("y", 230)
+      .text("40-50")
+      .style("font-size", "16px")
+
+
+      //YEARS OF MEMBERSHIP
+      demog_ages.append("rect")
+      .attr("x", 85)
+      .attr("y", 5)
+      .attr("width", 9*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 35)
+      .attr("y", 30)
+      .text("25-35")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 85)
+      .attr("y", 55)
+      .attr("width", 5*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 35)
+      .attr("y", 80)
+      .text("35-45")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 85)
+      .attr("y", 105)
+      .attr("width", 8*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 35)
+      .attr("y", 130)
+      .text("45-55")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 85)
+      .attr("y", 155)
+      .attr("width", 16*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 35)
+      .attr("y", 180)
+      .text("55-65")
+      .style("font-size", "16px")
+      demog_ages.append("rect")
+      .attr("x", 85)
+      .attr("y", 205)
+      .attr("width", 11*15)
+      .attr("height", 40)
+      .attr("fill", "grey")
+      demog_ages.append("text")
+      .attr("x", 35)
+      .attr("y", 230)
+      .text("65-75")
+      .style("font-size", "16px")
+
+
       // // square grid
       // let grid = () =>{
       //   rects
