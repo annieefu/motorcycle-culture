@@ -13,7 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Oswald:wght@400;500;600&display=swap"
     rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway&display=swap"
     rel="stylesheet">
@@ -92,8 +93,8 @@
       <svg id="stigma_viz" style="margin-left: -9vw;"></svg></br>
 
     </div></br></br></br></br>
-    <div id="div6">
-      <p id="p6"> I realized from these answers that my circles, especially of friends at Cornell and the University of
+    <div id="div6" style="margin-left: -2vw;">
+      <p id="p6" style="font-size: 18px"> I realized from these answers that my circles, especially of friends at Cornell and the University of
         Michigan,
         predominantly formed their idea of motorcyclists from portrayals in pop culture and media, with only a few of
         them
@@ -109,16 +110,22 @@
 <div style="display: inline;">
         <h3 style="display: inline;"> Their Ages</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Years of M.C. Membership</h3style="display: inline;">
       </div>
-        <svg id="demog_whole" style="margin-left: -4vw;"></svg>
+        <svg id="demog_whole" style="margin-left: -2vw;"></svg>
       </div>
-      </br></br>
       <h3> Their Occupations</h3>
-      <svg id="demog_viz" style="margin-left: -4vw;"></svg>
-      <svg id="job_list" style="margin-left: -3vw"></svg>
+      <h5> <i> Hover for Job Details</i></h5>
+      <svg id="demog_viz" style="margin-left: 0vw;"></svg>
+      <svg id="job_list" style="margin-left: 0vw"></svg>
     </div>
 
     <div id="div7">
-      <svg id="insignia_wall" style="margin-left: -7vw;"></svg>
+
+      <h3> Their Communities: An Insignia Wall</h3>
+
+      <p id="p7"> </p>
+
+      <h5> <i> Hover for Group Details</i></h5>
+      <svg id="insignia_wall" style="margin-left: -15vw;"></svg>
     </div>
   </div>
   <!-- svg -->
@@ -166,7 +173,7 @@
         .attr('height', 30).attr("padding", "0px").style("margin-top", "-20px")
       demog_whole.attr('width', 700)
         .attr('height', 300)
-      insig.attr("width","950px")
+      insig.attr("width","1250px")
         .attr("height", "900px")
 
 
@@ -346,7 +353,7 @@
       let insig_group = insig.append("g").attr("id", "insig_group");
 
       let tooltip_width = 180;
-        let tooltip_height = 60;
+        let tooltip_height = 64;
 
 
 
@@ -367,12 +374,12 @@
           .attr("fill", "#0A0908")
           .attr("font-family", "'Noto Serif', serif")
           .attr("color", "#0A0908")
-          .attr("font-weight", "300")
+          .attr("font-weight", "700")
           .attr("font-size", "15px")
           .attr("text-anchor", "middle")
           .attr("alignment-baseline", "hanging")
           .attr("x", tooltip_width / 2.0)
-          .attr("y", 8);
+          .attr("y", 5);
 
         let founding_text = tooltip.append("text")
           .attr("fill", "#0A0908")
@@ -382,7 +389,18 @@
           .attr("text-anchor", "middle")
           .attr("alignment-baseline", "hanging")
           .attr("x", tooltip_width / 2.0)
-          .attr("y", 28);
+          .attr("y", 25);
+
+        
+         let loc_text = tooltip.append("text")
+          .attr("fill", "#0A0908")
+          .attr("font-family", "'Noto Serif', sans-serif")
+          .attr("font-size", "15px")
+          .attr("font-weight", "300")
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "hanging")
+          .attr("x", tooltip_width / 2.0)
+          .attr("y", 45);
 
       function handleMouseOver(d, i) {  // Add interactivity
         // Use D3 to select element, change color and size
@@ -492,8 +510,9 @@
           
         
         );
-            tooltip.attr("transform", "translate(" + (d3.event.pageX-300) + "," + (d3.event.pageY-5785) + ")");
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-5835) + ")");
         founding_text.text("Founded: " + select.datum().founded);
+        loc_text.text( select.datum().location);
       }
 
       function insigmouseoff(d, i) {
@@ -1164,47 +1183,55 @@
         .append('image')
         .style("z-index", "-1")
         .attr("x", function(d,i) {
-          if (i<=5) {
-          return 140*i;
+          if (i<=7) {
+          return 146*i+30;
         }
-        else if (i>=6 && i<=11){
-          return (142*i-850);
+        else if (i>=8 && i<=15){
+          return (146*i-1170+30);
         }
-        else if (i>=12 && i<=17){
-          return (142*i-1712);
+        else if (i>=16 && i<=23){
+          return (146*i-2330+30);
         }
-        else if (i>=18 && i<=23){
-          return (142*i-2560);
+        else if (i>=24 && i<=32){
+          return (146*i-3498+30);
         }
-        else if (i>=24 && i<=29){
-          return (142*i-3140);
+        else if (i>=33 && i<=39){
+          return (146*i-4830+30);
         }
         
         })
         .attr("y", function(d,i) {
-          if (i<=5) {
-          return 40;
+          if (i<=7) {
+          return 20;
         }
-        else if (i>=6 && i<=11){
-          return 220;
-        }
-
-        else if (i>=12 && i<=17){
-          return 400;
-        }
-        else if (i>=18 && i<=23){
-          return 580;
+        else if (i>=8 && i<=15){
+          return 190;
         }
 
-        else if (i>=24 && i<=29){
-          return 740;
+        else if (i>=16 && i<=23){
+          return 370;
+        }
+        else if (i>=24 && i<=32){
+          return 560;
+        }
+
+        else if (i>=33&& i<=39){
+          return 710;
         }
         }
         )
-        .attr("width", "136px")
-        .attr("height", "136px")
-        .attr("max-width", "100%")
-        .attr("max-height", "100%")
+        .attr("width", function(d) {
+          if (d.index=="steel"){
+            return "153px";
+          }
+          else if (d.index=="beemer"){
+            return "153px";
+          }
+          else {
+            return "124px";
+          }
+          })
+        .attr("height", "124px")
         .attr("id", function(d) {  return (d.index)})
         .attr("href", function(d) { return "/"+ String(d.insignias)})
         .on("mouseover", insigmouseover)
