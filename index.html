@@ -108,7 +108,8 @@
         groups, and
         organizations around the state and learned more about them through individual and group interviews. By the end of three weeks, we 
         met riders from over seventeen clubs and gathered more than 
-        eighty responses on a Google Form:
+        eighty responses on a Google Form. The results, though providing a clear picture of what demographic dominates the scene,
+        carries interesting variety in time spent towards riding.
       </p></br></br>
       <div class="demog_split">
 
@@ -118,14 +119,16 @@
       </div>
         <svg id="demog_whole" style="margin-left: -2vw;"></svg>
       </div>
-
       <div class="demog_split">
         <div style="display: inline;">
                 <h3 style="display: inline;"> Their Genders</h3> <h3 style="display: inline; margin-left: 20vw;"> Their Mileage</h3>
               </div>
                 <svg id="demog_two" style="margin-left: -2vw;"></svg>
               </div>
-      <p> </p></br></br>
+      <p> </p><p> During my call with the Nassau Wings Motorcycle Club of Long Island, a club member chimed in on the topic of 
+        motorcycle stereotypes. "We're just about the scariest group of dentists, doctors, and IT guys you'll ever meet." 
+        The whole group broke into laughter, and I started asking in future interviews about the members' occupations.
+      </p></br></br>
       <h3> Their Occupations</h3>
       <h5> <i> Hover for Job Details</i></h5>
       <svg id="demog_viz" style="margin-left: 0vw;"></svg>
@@ -136,7 +139,10 @@
 
       <h3> Their Communities: An Insignia Wall</h3>
 
-      <p id="p7"> </p></br><br>
+      <p id="p7"> With almost every group we spoke to, each had a unique insignia that comprised a cornerstore of their social identity.
+        Club insignias are typically created at the founding of the club and rarely change. For older clubs, this means their insignias
+        are relics of a fading cultural zeitgeist.
+      </p></br><br>
 
       <h5> <i> Hover for Group Details</i></h5>
       <svg id="insignia_wall" style="margin-left: -15vw;"></svg>
@@ -144,14 +150,43 @@
 
     <div id="#div8">
 
-      <h3> STURGIS</h3>
+      <h3>The Sturgis Thing</h3>
 
-      <p id="p7"> </p>
+      <p id="p7"> With the above testaments to the level of deep camaraderie and community building motorcycle culture has to offer,
+        placing a culture of freedom, open-air, and socializing into the context of the ongoing pandemic understandably gives rise to conflict.
+      </br><br> This past summer, one of the most unifying annual events of the nationwide community, Sturgis Motorcycle Rally,
+      was identified as the root cause of around 270,000 cases of Covid-19 in early September.</br></br>
+      With data provided by the official Sturgis headquarters in South Dakota, mapping the 2019 rally attendance 
+      of about 495,000 shows to what degree the event unifies the community, bringing riders from almost every state.
+      </p></br>
+      <h5> <i> Hover for Attendance Percentages by Region</i></h5>
+      <div id='map' style="margin-left: -3vw;">
 
-      <h5> <i> Hover for Attendance Details</i></h5>
-      <div id='map' style="margin-left: -5vw;">
-
+      
       </div>
+
+    </br></br>
+      <img src="images/sturgis_attendance.jpg"></img>
+
+    <p>Despite the height of the pandemic in the United States occurring throughout the summer, the attendance numbers
+      for the 2020 Sturgis rally shows variations in attendance compared to past years. The phenomenon once again gives
+      rise to a sense of inherent conflict within American motorcycle culture. </br></br>Day to day, motorcyclists often go unnoticed by the everyday civilian, 
+      both physically (the high rate of motorcycle accidents is a point of contention within the community) and spiritually. Yet, the sheer interconnectedness, intensity, and tradition of the culture still continue to influence the country in momentous ways,
+    as it did with the pandemic this summer.</br></br>
+
+     American motorcycle culture's novelty, luxury, and unapologetic emphasis on freedom and camaraderie continually
+     stands at the split between those who stigmatize the lifestyle and those who feel drawn towards it. </br></br>
+     In recent years, the divide seems to be more clearly in age than ever. Jaime Cruz, current President of the Nassau Wings, 
+     is just one of several club leaaders tha cited a lack of younger members joining in recent years. When I asked him 
+     why trend might be occurring, he shrugged. <b>"I guess the younger people just want to do their own thing," he said.
+     "They're not really that into the whole leather jackets thing and the commitment."</b></br></br>
+
+    If the trend continues, motorcycle clubs and motorcycle culture as a whole may look entirely different a few decades from now.
+    The leather might be phased out; the bikes might be electric, but those are only cosmetic changes to those who know the culture best.
+    Open roads, free exchange; these are the aspects of American motorcycle culture that will continue to uphold this formidable community for years to come.
+
+
+   </p>
     </div>
   </div>
   <!-- svg -->
@@ -567,7 +602,7 @@
           
         
         );
-            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-5835) + ")");
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-6435) + ")");
         founding_text.text("Founded: " + select.datum().founded);
         loc_text.text( select.datum().location);
       }
@@ -1233,9 +1268,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 438)
+      .attr("x", 432)
       .attr("y", 30)
-      .text("1-10")
+      .text("1-10k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 565)
@@ -1251,9 +1286,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 80)
-      .text("10-20")
+      .text("10-20k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 685)
@@ -1269,9 +1304,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 130)
-      .text("20-30")
+      .text("20-30k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 585)
@@ -1287,9 +1322,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 180)
-      .text("30-40")
+      .text("30-40k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 530)
@@ -1305,9 +1340,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 230)
-      .text("40-50")
+      .text("40-50k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 540)
@@ -1323,9 +1358,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 280)
-      .text("40-50")
+      .text("50-60k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 480)
@@ -1341,9 +1376,9 @@
       .attr("height", 40)
       .attr("fill", "grey")
       demog_gender.append("text")
-      .attr("x", 430)
+      .attr("x", 424)
       .attr("y", 330)
-      .text("40-50")
+      .text("60-70k")
       .style("font-size", "16px")
       demog_gender.append("text")
       .attr("x", 513)

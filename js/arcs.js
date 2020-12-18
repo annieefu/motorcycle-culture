@@ -347,24 +347,22 @@ mappin.attr("width","840px")
 ];
 
 
-
-
-
   function drawarcs(map_svg) {
 
-let tooltip2_width = 60;
-let tooltip2_height = 30;
+let tooltip2_width = 90;
+let tooltip2_height = 40;
 
 // now add the tooltip
-let tooltip2 = map_svg.append("g")
+let tooltip2 = d3.select("#map").append("g")
           .attr("class", "tooltip")
           .attr("visibility", "hidden")
-          .style("z-index", 100);
+          .style("z-index", 999);
 
 
 tooltip2.append("rect")
   .attr("fill", "#F2F4F3")
   .attr("opacity", 1)
+  .style("margin-left", "00px;")
   .attr("width", tooltip2_width)
   .attr("height", tooltip2_height);
 
@@ -376,7 +374,7 @@ let percent_text = tooltip2.append("text")
   .attr("font-weight", "700")
   .attr("font-size", "15px")
   .attr("text-anchor", "middle")
-  .attr("alignment-baseline", "hanging")
+  // .attr("alignment-baseline", "hanging")
   .attr("x", tooltip2_width / 2.0)
   .attr("y", 5);
 
@@ -384,13 +382,15 @@ let percent_text = tooltip2.append("text")
   function mapmouseover(d, i) {  // Add interactivity
     // Use D3 to select element, change color and size
 
-    tooltip2.style("visibility", "visible").style("z-index", 100);
+    tooltip2.style("visibility", "visible").style("z-index", 999);
 
     let select2 = d3.select(this)
     console.log(select2._groups[0][0].id)
     console.log( d3.event.pageX, d3.event.pageY)
     // percent_text.text(select2.datum().name);
-    tooltip2.attr("transform", "translate(" + (d3.event.pageX+600) + "," + (d3.event.pageY-6835) + ")");
+    tooltip2.attr("top", "d3.event.pageY")
+    tooltip2.attr("left", "d3.event.pageX")
+    // tooltip2.attr("transform", "translate(" + (d3.event.pageX+600) + "," + (d3.event.pageY-6835) + ")");
     percent_text.text(String(select2._groups[0][0].id) + "%");
   }
 
