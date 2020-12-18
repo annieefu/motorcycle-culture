@@ -156,8 +156,15 @@ p {
 svg{
   padding: 10px;
 }
-text{
+/* text{
   font-size: 40px;
+} */
+
+.tooltip{
+  fill: white;
+  border: solid;
+  border-color: red;
+  border-width: 3px;
 }
 
 strong{

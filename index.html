@@ -116,7 +116,7 @@
     </div>
 
     <div id="div7">
-      <svg id="insignia_wall" style="margin-left: -4vw;"></svg>
+      <svg id="insignia_wall" style="margin-left: -7vw;"></svg>
     </div>
   </div>
   <!-- svg -->
@@ -164,7 +164,7 @@
         .attr('height', 30).attr("padding", "0px").style("margin-top", "-20px")
       demog_whole.attr('width', 700)
         .attr('height', 300)
-      insig.attr("width","900px")
+      insig.attr("width","950px")
         .attr("height", "900px")
 
 
@@ -279,6 +279,20 @@
       let shantanuimg = group.append("svg:image");
 
 
+
+
+
+      // let tooltip = d3.select("insig")
+      //   .append("rect")
+      //   .attr("class", "tooltip")
+      //   .style("opacity", 0)
+      //   .append("text")
+      //   .append("id", "name1")
+      //   .style("opacity", 0)
+      //   .append("text")
+      //   .append("id", "founded")
+      //   .style("opacity", 0);
+
       let stigmatext = stigma_vis.append("text");
       let stigmatext2 = stigma_vis.append("text");
       let stigmatext3 = stigma_vis.append("text");
@@ -328,6 +342,46 @@
       
 
       let insig_group = insig.append("g").attr("id", "insig_group");
+
+      let tooltip_width = 160;
+        let tooltip_height = 90;
+
+
+
+        // now add the tooltip
+        let tooltip = insig.append("g")
+          .attr("class", "tooltip")
+          .attr("visibility", "hidden")
+          .style("z-index", 100);
+
+        tooltip.append("rect")
+          .attr("fill", "#F2F4F3")
+          .attr("stroke", "#49111C")
+          .attr("stroke-width", "4px")
+          .style("stroke-radius", "4px")
+          .attr("opacity", 1)
+          .attr("width", tooltip_width)
+          .attr("height", tooltip_height);
+
+        //create the text box with info about the restuarant being hovered over
+        let name_text = tooltip.append("text")
+          .attr("fill", "#1D3557")
+          .attr("font-family", "Open-Sans")
+          .attr("color", "#E63946")
+          .attr("font-size", "18px")
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "hanging")
+          .attr("x", tooltip_width / 2.0)
+          .attr("y", 8);
+
+        let founding_text = tooltip.append("text")
+          .attr("fill", "#1D3557")
+          .attr("font-family", "Open-Sans")
+          .attr("font-size", "18px")
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "hanging")
+          .attr("x", tooltip_width / 2.0)
+          .attr("y", 28);
 
       function handleMouseOver(d, i) {  // Add interactivity
         // Use D3 to select element, change color and size
@@ -417,6 +471,30 @@
             .attr("stroke", "none")
             .attr("stroke-width", "0px");
       }
+
+      function insigmouseover(d, i) {  // Add interactivity
+        // Use D3 to select element, change color and size
+
+        tooltip.style("visibility", "visible").style("z-index", 100);
+    
+        let select = d3.select(this)
+        console.log(select.datum())
+        console.log( d3.event.pageX, d3.event.pageY)
+        name_text.text(select.datum().name);
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-300) + "," + (d3.event.pageY-5800) + ")");
+        founding_text.text("Founded: " + select.datum().founded);
+      }
+
+      function insigmouseoff(d, i) {
+        // // Use D3 to select element, change color back to normal
+        
+        tooltip.style("visibility", "hidden");
+      }
+
+
+
+
+
       let titleimgdev = () => {
         titleimg
           .transition()
@@ -1051,6 +1129,7 @@
           d['founded'] = d['Founding Year']
           d['insignias'] = d['Insignia']
           d['location'] = d['Location']
+          d['id'] = d.Name;
         });
   console.log(data);
 
@@ -1067,25 +1146,27 @@
         .data(data)
         .enter()
         .append('g')
+        
         insigs.select('g')
         .data(data)
         .enter()
         .append('image')
+        .style("z-index", "-1")
         .attr("x", function(d,i) {
           if (i<=5) {
           return 140*i;
         }
         else if (i>=6 && i<=11){
-          return (140*i-825);
+          return (142*i-850);
         }
         else if (i>=12 && i<=17){
-          return (140*i-1668);
+          return (142*i-1712);
         }
         else if (i>=18 && i<=23){
-          return (140*i-2510);
+          return (142*i-2560);
         }
         else if (i>=24 && i<=29){
-          return (140*i-3110);
+          return (142*i-3140);
         }
         
         })
@@ -1105,15 +1186,18 @@
         }
 
         else if (i>=24 && i<=29){
-          return 700;
+          return 740;
         }
         }
         )
-        .attr("width", "125px")
-        .attr("height", "125px")
+        .attr("width", "136px")
+        .attr("height", "136px")
         .attr("max-width", "100%")
         .attr("max-height", "100%")
+        .attr("id", function(d) {  return (d.index)})
         .attr("href", function(d) { return "/"+ String(d.insignias)})
+        .on("mouseover", insigmouseover)
+        .on("mouseout", insigmouseoff)
 
     
 });
