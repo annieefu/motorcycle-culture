@@ -1481,9 +1481,9 @@
       .text("11")
       .style("font-size", "16px")
       .attr("display","none")
-
-
-      d3.csv("/data/Club_stats.csv", function(d){
+      
+      
+      let club_stats  = await d3.csv("/data/Club_stats.csv",  function(d){
           d['name'] = d.Name;
           d['founded'] = d['Founding Year'];
           d['insignias'] = d.Insignia;
