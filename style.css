@@ -23,6 +23,14 @@ h1{
 }
 
 
+h3{
+  color: #0A0908;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
 h2{
   line-height: 1.25;
   padding-top: 15px;
@@ -35,16 +43,27 @@ h2{
 b{
   color: #49111C;
 }
-#p1 {
+
+#p1{
     font-family: 'Open-Sans', sans-serif;
     color: #0A0908;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 300;
   position: absolute;
     position: sticky;
-    top: 24vh;
+    top: 26vh;
     margin-bottom: 240px;
 }
+
+#p1 text{
+  color: #0A0908;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+
 p {
   color: #0A0908;
 }
@@ -52,11 +71,11 @@ p {
 #p2 {
   font-family: 'Open-Sans', sans-serif;
   color: #0A0908;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
   position: relative;
   position: sticky;
-  top: 22vh;
+  top: 19vh;
   margin-bottom: 2vh;
 }
 
@@ -120,6 +139,19 @@ p {
   /* position: absolute; */
 }
    
+.demog-split{
+  display: inline-flex;
+  direction: row;
+}
+
+.demog-left{
+  display: flex;
+  order:1;
+}
+.demog-right{
+  display: flex;
+  order:2;
+}
 
 svg{
   padding: 10px;
@@ -127,11 +159,12 @@ svg{
 text{
   font-size: 40px;
 }
+
 strong{
   /* font-family: 'Open-Sans', 'sans-serif'; */
-  font-weight: 500;
-  color: #5E503F;
-  font-size: 17px;
+  font-weight: 600;
+  color:#5E503F;
+  font-size: 18px;
 }
 
 #p3 strong {
