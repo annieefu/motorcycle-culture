@@ -1568,7 +1568,7 @@
           })
         .attr("height", "124px")
         .attr("id", function(d) {  return (d.index)})
-        .attr("href", function(d) { return "/"+ String(d.insignias)})
+        .attr("href", function(d) { return String(d.insignias)})
         .on("mouseover", insigmouseover)
         .on("mouseout", insigmouseoff)
 
