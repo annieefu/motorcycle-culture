@@ -1488,7 +1488,7 @@
       .attr("display","none")
 
 
-      d3.csv("/data/Club_stats.csv", function(data) {
+      d3.csv("data/Club_stats.csv", function(data) {
         data.forEach(function(d) {
           d['name'] = d.Name;
           d['founded'] = d['Founding Year']
