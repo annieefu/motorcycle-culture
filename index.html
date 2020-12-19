@@ -601,12 +601,14 @@
           if (select.datum().name == "Indian Motorcycle Riders Group of Mineola, Inc."){
             return "Indian Motorcycle Riders"
           }
+
+        else if (select.datum().name == "Gotham Ducati Owner's Club"){
+          return "Gotham Ducati Owners"
+          }
           else {
             return select.datum().name;
           }
         }
-          
-        
         );
         var bodyDiv = document.getElementById("body");
         var insig_height = window.innerHeight;
