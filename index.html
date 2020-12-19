@@ -31,7 +31,7 @@
   <a href="https://cornelldatajourn.al/" style="text-decoration: none;"><img src="images/favicon.svg" width="35px" style=" margin-left: 46%;display: inline-block; order:1; margin-top: 8px;"> <h1 class="headerr" style="display: inline-flex; order:2;margin-left: 5px;margin-top:0px; "> cdj</h1></a>
 </div>
 </header>
-<body>
+<body id="body">
 
   <div id="graphic">
     <div class="container">
@@ -595,8 +595,8 @@
         tooltip.style("visibility", "visible").style("z-index", 100);
     
         let select = d3.select(this)
-        console.log(select.datum())
-        console.log( d3.event.pageX, d3.event.pageY)
+        // console.log(select.datum())
+        // console.log( d3.event.pageX, d3.event.pageY)
         name_text.text(function() {
           if (select.datum().name == "Indian Motorcycle Riders Group of Mineola, Inc."){
             return "Indian Motorcycle Riders"
@@ -608,7 +608,11 @@
           
         
         );
-            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.event.pageY-6635) + ")");
+        var bodyDiv = document.getElementById("body");
+        var insig_height = window.innerHeight;
+        // console.log(insig_height)
+        // console.log(d3.event.pageY-7*insig_height)
+            tooltip.attr("transform", "translate(" + (d3.event.pageX-100) + "," + (d3.select(this).attr("y")) + ")");
         founding_text.text("Founded: " + select.datum().founded);
         loc_text.text( select.datum().location);
       }
