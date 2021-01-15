@@ -1,50 +1,4 @@
 
-@media screen and (max-width: 760px) {
-  #graphic {
-    display: none;
-    visibility: hidden;
-  }
-
-  #viz g{ 
-    display: none;
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  #sunimg {
-    opacity: 0;
-    display:none;
-    visibility: hidden;
-  }
-
-  .sunimg{
-    opacity: 0;
-    display:none;
-    visibility: hidden;
-  }
-
-  .container-div-2 {
-    position: relative;
-    margin-top: 400rem;
-    width: 120rem;
-    z-index: 99;
-  }
-  p {
-    width: 100%;
-    margin: none;
-    font-size: 18px;
-    font-weight: 300;
-    font-family: 'Amiri', serif;
-    color: #0A0908;
-    line-height: 1.25;
-    text-align: justify;
-    position: relative;
-    /* font-weight: 200; */
-  }
-  #body {
-    display: block;
-  }
-}
 
 .fixed #viz #sunimg{
   /* display: visible; */
@@ -140,7 +94,7 @@ h5{
 }
 #p3 {
   max-width: 42rem;
-  margin: -24rem;
+  margin: -25rem;
   text-align: justify;
   font-family: 'Amiri', serif;
   color: #0A0908;
@@ -260,12 +214,12 @@ color: black;
   height: 100%;
   max-width: 600px;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 0;
   position: absolute;
   height: 100%;
   /* line-height: 1.5; */
-  left: 610px;
+  left: 38rem;
 }
 .container div {
   height: 100%;
@@ -277,9 +231,9 @@ color: black;
 .container-div-2 {
   position: relative;
   margin-left: 22.3rem;
-  max-width: 60rem;
+  max-width: 63rem;
   margin-top: 180rem;
-  width: 44rem;
+  width: 45rem;
   z-index: 99;
   position: -webkit-sticky;
   position: sticky;
@@ -326,3 +280,142 @@ color: black;
 	fill:	#A9927D;
 	stroke-width: 1.4;
 }
+
+
+
+/* Hide mobile paragraphs */
+
+#div1mobile, #div2mobile, #div3mobile, #div4mobile {
+  visibility: hidden;
+  display:none;
+}
+
+
+
+.logo {
+  width: 35px;
+margin-left: 40rem; margin-top: 2rem; display: inline-block; order: 1;
+}
+
+
+#stigma_viz {
+  margin-left: -12rem;
+}
+#demog_viz{
+  margin-left: 0vw;
+}
+
+#insignia_wall {
+  margin-left: -16rem;
+}
+
+#sturgis_att_img{
+ margin-left: -3rem
+}
+
+#map{
+  margin-left: -3rem;
+}
+
+@media only screen 
+and (min-device-width: 100px) 
+and (max-device-width: 700px) {
+
+  #map{
+    margin-left: 4rem;
+  }
+  #stigma_viz{
+    margin-left: 0rem;
+  }
+  
+
+  #sturgis_att_img{
+    margin-left: 0rem;
+    width: 1100px;
+   }
+
+  #insignia_wall {
+    margin-left: 0rem;
+  }
+
+
+#demog_viz{
+  margin-left: 12rem;
+}
+
+.logo {
+  width: 60px;
+  margin-left: 34rem; margin-top: 2rem; display: inline-block; order: 1;
+  }
+
+
+
+  #graphic {
+    display: none;
+  }
+
+  .container {
+    display: none;
+  }
+/* 
+  #graphic {
+    display: none;
+    visibility: hidden;
+  } */
+
+  #viz g{ 
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #sunimg {
+    opacity: 0;
+    display:none;
+    visibility: hidden;
+  }
+
+  .sunimg{
+    opacity: 0;
+    display:none;
+    visibility: hidden;
+  }
+  #p1mobile text{
+    color: #0A0908;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
+  #div1mobile, #div2mobile, #div3mobile, #div4mobile {
+    display: block;
+    visibility: visible;
+  }
+
+  .container-div-2 {
+    position: relative;
+    width: 65rem;
+    z-index: 99;
+    margin: 4rem;
+    max-width: none;
+  }
+
+  p {
+    width: 100%;
+    margin: none;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Amiri', serif;
+    color: #0A0908;
+    line-height: 1.25;
+    text-align: justify;
+    position: relative;
+    /* font-weight: 200; */
+  }
+  #body {
+    display: block;
+  }
+}
+
+
