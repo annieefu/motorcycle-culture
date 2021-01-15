@@ -2,6 +2,7 @@
 
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -100,7 +101,7 @@
   </div>
   <div class="container-div-2">
     <div id="div1mobile">
-<img src="images/bike-new.png" width="750px" style="margin-left: 10rem;"> </img>
+<img src="images/bike-new.png" width="750px" style="margin-left: 16rem;"> </img>
 
       <h1> Open Roads & Free Exchange:</h1>
       <p class="subheading"><i>The Complexities of Motorcycle Culture in Pandemic America</i></p>
@@ -1894,12 +1895,12 @@ let show_whole_time = () => {
         });
       };
 
-      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-      // some code..
 
-      new scroll('div1', '1%', show_whole_time, show_whole_time)
-      }else
-      {
+      jQuery(document).ready(function(){
+    function resizeForm(){
+        var width = (window.innerWidth > 0) ? window.innerWidth : document.documentElement.clientWidth;
+        if(width > 700){
+
       //triger these functions on page scroll
       new scroll('div1', '40%', titleimgdev, titleimgdev);
       new scroll('div2', '80%', sunimgdev, titleimgdev);
@@ -1907,9 +1908,24 @@ let show_whole_time = () => {
       new scroll('div4', '84%', quotedev, shantanudev);
       new scroll('div5', '20%', stigmadev, quotedev);
       new scroll('div6', '55%', occupation_grid, stigmadev);
-      // new scroll('div5', '35%', stigmadev4, stigmadev3);
-      // new scroll('div5', '15%', stigmadev5, stigmadev4);
-      }
+        } else {
+
+          new scroll('div1', '1%', show_whole_time, show_whole_time)
+        }    
+    }
+    window.onresize = resizeForm;
+    resizeForm();
+});
+
+
+
+      // if( /Android|iPad|iPad Pro| iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      // // some code..
+      // }else
+      // {
+      // // new scroll('div5', '35%', stigmadev4, stigmadev3);
+      // // new scroll('div5', '15%', stigmadev5, stigmadev4);
+      // }
 
 
 

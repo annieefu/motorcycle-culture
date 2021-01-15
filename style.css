@@ -319,7 +319,8 @@ margin-left: 40rem; margin-top: 2rem; display: inline-block; order: 1;
 
 @media only screen 
 and (min-device-width: 100px) 
-and (max-device-width: 700px) {
+and (max-device-width: 1024px)
+ {
 
   #map{
     margin-left: 4rem;
@@ -345,7 +346,7 @@ and (max-device-width: 700px) {
 
 .logo {
   width: 60px;
-  margin-left: 34rem; margin-top: 2rem; display: inline-block; order: 1;
+  margin-left: 38rem; margin-top: 2rem; display: inline-block; order: 1;
   }
 
 
@@ -395,10 +396,10 @@ and (max-device-width: 700px) {
 
   .container-div-2 {
     position: relative;
-    width: 65rem;
+    width: 74rem;
     z-index: 99;
     margin: 4rem;
-    max-width: none;
+    max-width: 90rem;
   }
 
   p {
