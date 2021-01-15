@@ -28,7 +28,7 @@
 
 <header>
   <div style="text-align:center;display: inline-flex; direction: row;"></div>
-  <a href="https://cornelldatajourn.al/" style="text-decoration: none;"><img src="images/favicon.svg" width="35px" style=" margin-left: 46%;display: inline-block; order:1; margin-top: 8px;"> <h1 class="headerr" style="display: inline-flex; order:2;margin-left: 5px;margin-top:0px; "> cdj</h1></a>
+  <a href="https://cornelldatajourn.al/" style="text-decoration: none;"><img src="images/favicon.svg" width="35px" style=" margin-left: 39rem;display: inline-block; order:1; margin-top: 8px;"> <h1 class="headerr" style="display: inline-flex; order:2;margin-left: 5px;margin-top:0px; "> cdj</h1></a>
 </div>
 </header>
 <body id="body">
@@ -37,8 +37,11 @@
     <div class="container">
       <div id="div1">
         <h1> Open Roads & Free Exchange:</h1>
-        <p>The Complexities of Motorcycle Culture in Pandemic America</p>
-        <h2>by <strong>Annie Fu</strong> and <strong>Liying Wang</strong></h2>
+        <p class="subheading"><i>The Complexities of Motorcycle Culture in Pandemic America</i></p>
+        <h2>by Annie Fu, with reporting by Liying Wang</h2></br>
+        <p> In the summer of 2020, <a href="https://www.usatoday.com/story/news/nation/2020/09/08/study-260-000-coronavirus-cases-likely-tied-sturgis-rally/5750587002/">over 270,000 cases of Covid-19</a> were traced back to the 
+          annual Sturgis Motorcycle Rally. With contact tracing spanning over fifty-nine states, Canadian provinces, and countries, the 
+        outbreak placed an often overlooked subculture under sudden and immense scrutiny.</p>
       </div>
       <div id="div2">
 
@@ -61,7 +64,7 @@
           </br> </br>
           He re-established the organization while he was a student at the Johnson
           School, with the primary goal of educating his classmates
-          on motorcycle culture: <p class="quote"><i>In East Asian countries, people use
+          on motorcycle culture: </br></br><p class="quote"><i>In East Asian countries, people use
               motorcycles part of their daily commutes. There are
               motorcycles everywhere on the roads; everyone has one. But
               when I came to Cornell and told people I rode a motorcycle,
@@ -101,7 +104,7 @@
           or motorcycle clubs,</strong>
         and these were a few of the responses I received:
       </p>
-      <svg id="stigma_viz" style="margin-left: -9vw;"></svg></br>
+      <svg id="stigma_viz" style="margin-left: -12rem;"></svg></br>
 
     </div></br></br></br></br>
     <div id="div6" style="margin-left: -0vw;">
@@ -152,7 +155,7 @@
       </p></br><br>
 
       <h5> <i> Hover for Group Details</i></h5>
-      <svg id="insignia_wall" style="margin-left: -15vw;"></svg>
+      <svg id="insignia_wall" style="margin-left: -16rem;"></svg>
     </div>
 
     <div id="#div8">
@@ -173,13 +176,13 @@
       </div>
 
     </br></br>
-      <img src="images/sturgis_attendance.jpg"></img>
 
     <p>Despite the height of the pandemic in the United States occurring throughout the summer, the attendance numbers for the 2020 Sturgis rally shows 
       minimal drop in attendance this year compared to past years. 
       The phenomenon once again gives rise to a sense of inherent conflict within American motorcycle culture: Day to day, motorcyclists often go unnoticed by the everyday civilian, both physically (the high rate of motorcycle accidents is a point of contention within the community) and spiritually. Yet, the sheer interconnectedness, intensity, and tradition of the culture still continues to 
       influence the country in momentous ways, as it did with the pandemic this summer.</br></br>
 
+      <img src="images/sturgis_attendance.jpg" style="margin-left: -3rem"></img>
       American motorcycle culture's novelty, luxury, and unapologetic emphasis on freedom and camaraderie continually stands at the split between those who stigmatize the lifestyle and those who feel drawn towards it. </br></br>
      In recent years, the divide seems to be most apparent in the age divide. Jaime Cruz, current President of the Nassau Wings, is just one of several club leaaders tha cited a lack of younger 
      members joining in recent years. When I asked him why trend might be occurring, he shrugged. <b>"I guess the younger people just want to do their own thing," he said.
@@ -189,9 +192,13 @@
      different a few decades from now. The leather might be phased out; the bikes might be electric, 
      but those are only cosmetic changes to those who know the culture best. Open roads, 
      free exchange; these are the aspects of American 
-     motorcycle culture that will continue to uphold this formidable community for years to come.
-     </br></br>
+     motorcycle culture that will continue to uphold the formidable community for years to come.
+     </br></br></br></br>
 
+
+     <i> Thanks for reading. I'm always open to hearing questions or comments. If you'd like to get in touch, you can contact me by email at <a href="mailto:af397@cornell.edu">af397@cornell.edu</a>.
+     </i>
+    </br></br></br>
    </p>
     </div>
   </div>
@@ -343,6 +350,7 @@
         .data(our_data)
         .enter()
         .append("g")
+        .attr("id", "svggroup")
       let demog_ages = demog_whole.append("g").attr("id", "demog_vis")
         .on("mouseover", demogMouseOver)
         .on("mouseout", demogMouseOut) // age
@@ -358,7 +366,7 @@
 
       //create the objects
       let titleimg = group.append("svg:image");
-      let sunimg = group.append("svg:image");
+      let sunimg = group.append("svg:image").attr("class", "sunimg");
 
       let shantanuimg2 = group.append("svg:image");
       let shantanuimg = group.append("svg:image");
@@ -671,12 +679,13 @@
           .duration(1000)
           .ease(d3.easeLinear)
           .attr('x', 140)
+          .attr("id", "sunimg")
           .attr('y', 20)
           .attr('width', 300)
           .attr('height', 500)
           .attr("xlink:href", "images/daily_sun_1924.png")
+          .attr("opacity", 1)
           .attr("display", "visible")
-          .attr("opacity", "1")
         titleimg
           .transition()
           .duration(800)
@@ -689,7 +698,6 @@
           .attr("display", "none")
           .attr("opacity", "0")
           .ease(d3.easeLinear)
-
         shantanuimg2.transition()
           .duration(800)
           .attr("display", "none")
@@ -750,6 +758,12 @@
           .attr("opacity", "0")
           .ease(d3.easeLinear)
           .duration(16800);
+          sunimg
+          .transition()
+          .duration(800)
+          .attr("display", "none")
+          .attr("opacity", "0")
+          .ease(d3.easeLinear);
       }
 
 
@@ -853,7 +867,12 @@
           .attr("display", "visible")
           .attr("opacity", "1")
           .text('"Rowdy and mysterious men who also are secretly nice"');
-
+          sunimg
+          .transition()
+          .duration(800)
+          .attr("display", "none")
+          .attr("opacity", "0")
+          .ease(d3.easeLinear);
 
       }
 

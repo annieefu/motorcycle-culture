@@ -1,3 +1,60 @@
+
+@media screen and (max-width: 760px) {
+  #graphic {
+    display: none;
+    visibility: hidden;
+  }
+
+  #viz g{ 
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #sunimg {
+    opacity: 0;
+    display:none;
+    visibility: hidden;
+  }
+
+  .sunimg{
+    opacity: 0;
+    display:none;
+    visibility: hidden;
+  }
+
+  .container-div-2 {
+    position: relative;
+    margin-top: 400rem;
+    width: 120rem;
+    z-index: 99;
+  }
+  p {
+    width: 100%;
+    margin: none;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Amiri', serif;
+    color: #0A0908;
+    line-height: 1.25;
+    text-align: justify;
+    position: relative;
+    /* font-weight: 200; */
+  }
+  #body {
+    display: block;
+  }
+}
+
+.fixed #viz #sunimg{
+  /* display: visible; */
+  visibility: visible;
+}
+
+a {
+  color: navy;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
 *{
   margin:0;
@@ -5,15 +62,26 @@
 }
 html,
 body{
-   height: 100%;
+   height: 70rem;
    padding: 0;
    scroll-behavior: smooth;
    background: #C8D0CC;
    color: #0A0908;
-   font-family: 'Noto Serif', serif;
-   font-weight: 300;
 }
 
+
+p {
+  /* width: 100%; */
+  margin: none;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Amiri', serif;
+  color: #0A0908;
+  line-height: 1.25;
+  text-align: justify;
+  position: relative;
+  /* font-weight: 200; */
+}
 h1{
   color: #49111C;
   font-family: 'Oswald', sans-serif;
@@ -35,7 +103,7 @@ h2{
   line-height: 1.25;
   padding-top: 15px;
   font-weight: 300;
-  font-familY: 'Noto Serif', serif;
+  font-familY: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
 }
@@ -44,95 +112,68 @@ b{
   color: #49111C;
 }
 
-#p1{
-    font-family: 'Amiri', serif;
-    color: #0A0908;
-    font-size: 18px;
-    font-weight: 200;
-  position: absolute;
-    position: sticky;
-    top: 26vh;
-    margin-bottom: 240px;
-}
 
 #p1 text{
   color: #0A0908;
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 24px;
   margin-bottom: 18px;
 }
 
 
-p {
-  color: #0A0908;
-}
-
-#p2 {
-  font-family: 'Amiri', serif;
-  color: #0A0908;
-  font-size: 18px;
-  font-weight: 300;
-  position: relative;
-  position: sticky;
-  top: 19vh;
-  margin-bottom: 2vh;
-}
 
 
 .quote {
-  margin-left: 15px;
+  /* margin-left: 15px; */
   border-left: solid;
   padding-left: 9px;
   border-width: 3px;
   border-color: darkred;
-  top: 56vh;
+  /* top: 25rem;
   position: sticky;
-  margin-bottom: -30vh;
+  margin-bottom: -30vh; */
 }
 
 h5{
   color: #A9927D;
 }
 #p3 {
-  margin-left: -28vw;
-  width: 54vw;
+  max-width: 42rem;
+  margin: -24rem;
   text-align: justify;
   font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
   font-weight: 300;
   position: relative;
-  position: sticky;
-  top: 20vh;
-  margin-top: 400px;
+  top: 0rem;
+  margin-top: 4rem;
 }
 
 
 
-#p5{
+#p5 .div5 h1{
   /* margin-left: -28vw; */
-  margin-top:8vh;
-  width: 54vw;
+  margin-top:2rem;
+  width: 54rem;
   text-align: left;
   font-family: 'Amiri', serif;
   color: #0A0908;
   font-size: 18px;
   font-weight: 300;
-  /* position: relative;
-  position: sticky;
-  top: 10vh; */
+   position: relative;
   margin-bottom: 10px;
 }
 
 
 #p6 #p7{
-  width: 44vw;
+  width: 44rem;
   text-align: left;
   font-family: 'Amiri', serif;
   color: #0A0908;
-  font-size: 19px;
-  font-weight: 200;
+  font-size: 18px;
+  font-weight: 300;
   /* position: relative; */
 }
 
@@ -177,12 +218,13 @@ color: black;
   border-width: 3px;
 }
 
-strong{
-  /* font-family: 'Open-Sans', 'sans-serif'; */
+.subheading i {
   font-weight: 600;
+  font-family: 'Amiri', 'serif';
   color:#5E503F;
   font-size: 18px;
 }
+
 
 #p3 strong {
     /* font-family: 'Open-Sans', 'sans-serif'; */
@@ -197,27 +239,32 @@ strong{
   position:   relative; 
   height:  100%;
   position:  relative; 
-  margin:6vw;
+  margin:6rem;
   /* z-index: -1; */
 }
 
-div4{
+.div4{
   text-align: center;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .div1{
+  z-index:99;
+}
+
+
+.div2{
   z-index:99;
 }
 .container {
   height: 100%;
   max-width: 600px;
   width: 100%;
-  margin-top: 160px;
+  margin-top: 100px;
   padding: 0;
   position: absolute;
   height: 100%;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   left: 610px;
 }
 .container div {
@@ -229,13 +276,14 @@ div4{
 
 .container-div-2 {
   position: relative;
-  margin-top: 400vh;
-  width: 53%;
-  margin-left: 22vw;
+  margin-left: 22.3rem;
+  max-width: 60rem;
+  margin-top: 180rem;
+  width: 44rem;
   z-index: 99;
   position: -webkit-sticky;
   position: sticky;
-  top: 5vh;
+  font-family: 'Amiri', 'serif';
 }
 .fixed {
   position: fixed;
@@ -243,8 +291,6 @@ div4{
   height: 500px;
   top: 50px;
 }
-
-
    
 
 /* NEW STUFF */
