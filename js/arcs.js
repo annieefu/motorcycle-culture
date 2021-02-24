@@ -54,55 +54,6 @@ mappin.attr("width","840px")
 
 });
 
-// var tradedata = [
-//     {
-//       destination: {latitude: -23.3, longitude: 132.2},
-//       name: 'Australia',
-//       trade: 5
-//     },{
-//       destination: { latitude: -28.5, longitude: 24.7 },
-//       name: 'South Africa',
-//       trade : 6
-//     },{
-//       destination: { latitude: 31.7, longitude: 106.2 },
-//       name: 'China',     
-//       trade : 16
-//     },{
-//         destination: { latitude: 36.1, longitude: 127.7 },
-//         name: 'S. Korea',
-//         trade: 8
-//     },{
-//         destination: { latitude: 53.6, longitude: -2.3},
-//         name: 'Great Britain',
-//         trade: 12
-//     },{
-//         destination: { latitude: 61.2, longitude: 9.7144087 },
-//         name: 'Norway',
-//         trade: 2
-//     },{
-//         destination: { latitude: 61.6, longitude: 15.4 },
-//         name: 'Sweden',
-//         trade: 5
-//     },{
-//         destination: { latitude: 64.93, longitude: -19.02},
-//         name: 'Iceland',
-//         trade: 15
-//     },{
-//         destination: { latitude: 20.9, longitude: -101.5 },
-//         name: 'Mexico',
-//         trade: 15
-//     },{
-//         destination: { latitude: -14.0, longitude: -47.643501 },
-//         name: 'Brazil',
-//         trade: 12
-//    },{
-//         destination: {  latitude: 55.86, longitude: -112.1 },
-//         name: 'Canada',
-//         trade: 32
-//     }
-//   ];
-
-
   var tradedata = [
   {
     destination: {latitude: 18.257658 , longitude: -66.545348},
