@@ -90,7 +90,7 @@ const vis_sturgis_attendance = async function () {
   let date_parser = d3.timeParse("%Y-%m-%d")
 
   
-  d3.json("/data/attendance_official.json", function(data) {
+  d3.json("data/attendance_official.json", function(data) {
     for (var i = 0; i < data.length; i++) {
       // change all dates from strings to d3 datetime objects
       data[i]["Year"] = date_parser(data[i]["Year"])
@@ -133,7 +133,7 @@ const vis_sturgis_attendance = async function () {
   });
   
 
-  d3.json("/data/attendance_sddot.json", function(data) {
+  d3.json("data/attendance_sddot.json", function(data) {
     for (var i = 0; i < data.length; i++) {
   
   data[i]["Year"] = date_parser(data[i]["Year"])
