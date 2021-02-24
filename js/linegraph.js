@@ -18,7 +18,7 @@ let linechart = linesvg.append("g").attr("id", "graphs")
 
 const vis_sturgis_attendance = async function () {
 
-
+// scales
   const yearExtent = [2010, 2020] 
   const yearScale = d3.scaleTime().domain(yearExtent).range([0, lineWidth-20]);
   
