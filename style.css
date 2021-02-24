@@ -9,6 +9,11 @@ a {
   color: navy;
 }
 
+h4 {
+  text-align: center;
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
 *{
   margin:0;
@@ -19,7 +24,7 @@ body{
    height: 70rem;
    padding: 0;
    scroll-behavior: smooth;
-   background: #C8D0CC;
+   background: #f7f6f3;
    color: #0A0908;
 }
 
@@ -28,27 +33,27 @@ p {
   /* width: 100%; */
   margin: none;
   font-size: 18px;
-  font-weight: 300;
-  font-family: 'Amiri', serif;
+  font-weight: 400;
+  font-family: 'Nunito', serif;
   color: #0A0908;
-  line-height: 1.25;
   text-align: justify;
   position: relative;
+  letter-spacing: -.5px;
   /* font-weight: 200; */
 }
+
 h1{
-  color: #49111C;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  color: #49111C;
-  font-size:36px;
+  color: #49111c;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size:34px;
 }
 
 
 h3{
-  color: #0A0908;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
+  color: black;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
   font-size: 24px;
   margin-bottom: 12px;
 }
@@ -57,20 +62,20 @@ h2{
   line-height: 1.25;
   padding-top: 15px;
   font-weight: 300;
-  font-familY: 'Amiri', serif;
-  color: #0A0908;
+  font-familY: 'Avenir', sans-serif;
+  color: black;
   font-size: 18px;
 }
 
 b{
-  color: #49111C;
+  color: black;
 }
 
 
 #p1 text{
-  color: #0A0908;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
+  color: black;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
   font-size: 24px;
   margin-bottom: 18px;
 }
@@ -79,14 +84,10 @@ b{
 
 
 .quote {
-  /* margin-left: 15px; */
   border-left: solid;
   padding-left: 9px;
   border-width: 3px;
-  border-color: darkred;
-  /* top: 25rem;
-  position: sticky;
-  margin-bottom: -30vh; */
+  border-color: #49111c;
 }
 
 h5{
@@ -96,8 +97,8 @@ h5{
   max-width: 42rem;
   margin: -25rem;
   text-align: justify;
-  font-family: 'Amiri', serif;
-  color: #0A0908;
+  font-family: 'Avenir', serif;
+  color: black;
   font-size: 18px;
   font-weight: 300;
   position: relative;
@@ -112,8 +113,8 @@ h5{
   margin-top:2rem;
   width: 54rem;
   text-align: left;
-  font-family: 'Amiri', serif;
-  color: #0A0908;
+  font-family: 'Avenir', serif;
+  color: black;
   font-size: 18px;
   font-weight: 300;
    position: relative;
@@ -124,8 +125,8 @@ h5{
 #p6 #p7{
   width: 44rem;
   text-align: left;
-  font-family: 'Amiri', serif;
-  color: #0A0908;
+  font-family: 'Avenir', serif;
+  color: black;
   font-size: 18px;
   font-weight: 300;
   /* position: relative; */
@@ -173,17 +174,17 @@ color: black;
 }
 
 .subheading i {
-  font-weight: 600;
-  font-family: 'Amiri', 'serif';
-  color:#5E503F;
-  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Avenir', 'sans-serif';
+  color:black;
+  font-size: 19px;
 }
 
 
 #p3 strong {
     /* font-family: 'Open-Sans', 'sans-serif'; */
     font-weight: 500;
-    color: #5E503F;
+    color: black;
     font-size: 18px;
 
 }
@@ -214,7 +215,7 @@ color: black;
   height: 100%;
   max-width: 600px;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 10px;
   padding: 0;
   position: absolute;
   height: 100%;
@@ -237,7 +238,7 @@ color: black;
   z-index: 99;
   position: -webkit-sticky;
   position: sticky;
-  font-family: 'Amiri', 'serif';
+  font-family: 'Avenir', 'sans-serif';
 }
 .fixed {
   position: fixed;
@@ -314,7 +315,7 @@ margin-left: 40rem; margin-top: 2rem; display: inline-block; order: 1;
 }
 
 #map{
-  margin-left: -3rem;
+  margin-left: -6rem;
 }
 
 @media only screen 
@@ -407,12 +408,11 @@ and (max-device-width: 1024px)
     margin: none;
     font-size: 18px;
     font-weight: 300;
-    font-family: 'Amiri', serif;
+    font-family: 'Avenir', sans-serif;
     color: #0A0908;
     line-height: 1.25;
     text-align: justify;
     position: relative;
-    /* font-weight: 200; */
   }
   #body {
     display: block;
