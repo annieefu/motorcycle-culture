@@ -68,13 +68,13 @@ const vis_sturgis_attendance = async function () {
     .attr("transform", "translate(" + (margin.left - 10) + "," + (lineHeight + margin.top) + ")")
     .call(xAxis1)
   
-  // annotations.append("g")
-  //   .attr("class", "x gridlines")
-  //   .attr("fill", "#a8927d")
-  //   .attr("stroke", "#a8927d")
-  //   .attr("opacity", .45)
-  //   .attr("transform", "translate(" + (margin.left + 10) + "," + (lineHeight + margin.top) + ")")
-  //   .call(bottomGridlines)
+  annotations.append("g")
+    .attr("class", "x gridlines")
+    .attr("fill", "#a8927d")
+    .attr("stroke", "#a8927d")
+    .attr("opacity", .45)
+    .attr("transform", "translate(" + (margin.left + 10) + "," + (lineHeight + margin.top) + ")")
+    .call(bottomGridlines)
   
   
   annotations.append("text")
